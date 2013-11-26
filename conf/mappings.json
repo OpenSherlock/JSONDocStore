@@ -1,0 +1,20 @@
+{
+        "properties": {
+            "locator": {
+                "index": "not_analyzed",
+                "type": "string",
+                "store": "yes"
+            },
+            "instanceOf": {
+                "index": "not_analyzed",
+                "type": "string",
+                "store": "yes"
+            },
+            "subOf": {
+                "index": "not_analyzed",
+                "type": "string",
+                "store": "yes"
+            }
+        }
+ 
+}

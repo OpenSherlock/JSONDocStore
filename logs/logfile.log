@@ -1,0 +1,1140 @@
+INFO  2013-11-25 10:41:53,825 [main] - [test-node] version[0.90.7], pid[3756], build[36897d0/2013-11-13T12:06:54Z]
+INFO  2013-11-25 10:41:53,826 [main] - [test-node] initializing ...
+DEBUG 2013-11-25 10:41:53,826 [main] - [test-node] using home [C:\projects\keclipse\workspace\JSONBlobStore], config [C:\projects\keclipse\workspace\JSONBlobStore\config], data [[data]], logs [C:\projects\keclipse\workspace\JSONBlobStore\logs], work [data\work], plugins [C:\projects\keclipse\workspace\JSONBlobStore\plugins]
+INFO  2013-11-25 10:41:53,833 [main] - [test-node] loaded [], sites []
+DEBUG 2013-11-25 10:41:53,862 [main] - using [UnsafeChunkDecoder] decoder
+DEBUG 2013-11-25 10:41:53,878 [main] - [test-node] using node location [[data\elasticsearch\nodes\0]], local_node_id [0]
+DEBUG 2013-11-25 10:41:55,263 [main] - [test-node] creating thread_pool [generic], type [cached], keep_alive [30s]
+DEBUG 2013-11-25 10:41:55,273 [main] - [test-node] creating thread_pool [index], type [fixed], size [4], queue_size [200]
+DEBUG 2013-11-25 10:41:55,277 [main] - [test-node] creating thread_pool [bulk], type [fixed], size [4], queue_size [50]
+DEBUG 2013-11-25 10:41:55,277 [main] - [test-node] creating thread_pool [get], type [fixed], size [4], queue_size [1k]
+DEBUG 2013-11-25 10:41:55,277 [main] - [test-node] creating thread_pool [search], type [fixed], size [12], queue_size [1k]
+DEBUG 2013-11-25 10:41:55,278 [main] - [test-node] creating thread_pool [suggest], type [fixed], size [4], queue_size [1k]
+DEBUG 2013-11-25 10:41:55,278 [main] - [test-node] creating thread_pool [percolate], type [fixed], size [4], queue_size [1k]
+DEBUG 2013-11-25 10:41:55,278 [main] - [test-node] creating thread_pool [management], type [scaling], min [1], size [5], keep_alive [5m]
+DEBUG 2013-11-25 10:41:55,279 [main] - [test-node] creating thread_pool [flush], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:41:55,279 [main] - [test-node] creating thread_pool [merge], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:41:55,279 [main] - [test-node] creating thread_pool [refresh], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:41:55,279 [main] - [test-node] creating thread_pool [warmer], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:41:55,280 [main] - [test-node] creating thread_pool [snapshot], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:41:55,280 [main] - [test-node] creating thread_pool [optimize], type [fixed], size [1], queue_size [null]
+DEBUG 2013-11-25 10:41:55,313 [main] - [test-node] enabled [true], last_gc_enabled [false], interval [1s], gc_threshold [{default=GcThreshold{name='default', warnThreshold=10000, infoThreshold=5000, debugThreshold=2000}, ParNew=GcThreshold{name='ParNew', warnThreshold=1000, infoThreshold=700, debugThreshold=400}, ConcurrentMarkSweep=GcThreshold{name='ConcurrentMarkSweep', warnThreshold=10000, infoThreshold=5000, debugThreshold=2000}}]
+DEBUG 2013-11-25 10:41:55,314 [main] - [test-node] Using probe [org.elasticsearch.monitor.os.JmxOsProbe@4a0d81b4] with refresh_interval [1s]
+DEBUG 2013-11-25 10:41:55,316 [main] - [test-node] Using probe [org.elasticsearch.monitor.process.JmxProcessProbe@3d57211f] with refresh_interval [1s]
+DEBUG 2013-11-25 10:41:55,320 [main] - [test-node] Using refresh_interval [1s]
+DEBUG 2013-11-25 10:41:55,321 [main] - [test-node] Using probe [org.elasticsearch.monitor.network.JmxNetworkProbe@45c81ac0] with refresh_interval [5s]
+DEBUG 2013-11-25 10:41:55,541 [main] - [test-node] net_info
+host [Lenovo-PC]
+lo	display_name [Software Loopback Interface 1]
+		address [/0:0:0:0:0:0:0:1] [/127.0.0.1] 
+		mtu [-1] multicast [true] ptp [false] loopback [true] up [true] virtual [false]
+net0	display_name [WAN Miniport (SSTP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+net1	display_name [WAN Miniport (L2TP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+net2	display_name [WAN Miniport (PPTP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+ppp0	display_name [WAN Miniport (PPPOE)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth0	display_name [WAN Miniport (IPv6)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth1	display_name [WAN Miniport (Network Monitor)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth2	display_name [WAN Miniport (IP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+ppp1	display_name [RAS Async Adapter]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth3	display_name [Realtek PCIe FE Family Controller]
+		address [/fe80:0:0:0:e5b0:c96a:2d9c:7188%10] [/10.1.10.180] 
+		mtu [1500] multicast [true] ptp [false] loopback [false] up [true] virtual [false]
+net3	display_name [Microsoft ISATAP Adapter]
+		address [/fe80:0:0:0:0:5efe:a01:ab4%11] 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [false] virtual [false]
+net4	display_name [Microsoft 6to4 Adapter]
+		address 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [false] virtual [false]
+net5	display_name [Microsoft ISATAP Adapter #2]
+		address 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [false] virtual [false]
+net6	display_name [Teredo Tunneling Pseudo-Interface]
+		address [/2001:0:9d38:6abd:55:2843:f5fe:f54b] [/fe80:0:0:0:55:2843:f5fe:f54b%14] 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [true] virtual [false]
+net7	display_name [WAN Miniport (IKEv2)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth4	display_name [Iomega Virtual Ethernet Adapter]
+		address [/fe80:0:0:0:8e8:8e8e:5089:d63e%16] 
+		mtu [1500] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth5	display_name [Realtek PCIe FE Family Controller-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth6	display_name [Realtek PCIe FE Family Controller-WFP LightWeight Filter-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth7	display_name [WAN Miniport (Network Monitor)-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth8	display_name [WAN Miniport (IP)-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth9	display_name [WAN Miniport (IPv6)-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth10	display_name [Iomega Virtual Ethernet Adapter-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth11	display_name [Iomega Virtual Ethernet Adapter-WFP LightWeight Filter-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+
+DEBUG 2013-11-25 10:41:55,545 [main] - [test-node] Using probe [org.elasticsearch.monitor.fs.JmxFsProbe@65f4cdd2] with refresh_interval [1s]
+DEBUG 2013-11-25 10:41:55,871 [main] - [test-node] using indices.store.throttle.type [MERGE], with index.store.throttle.max_bytes_per_sec [20mb]
+DEBUG 2013-11-25 10:41:55,881 [main] - [test-node] using bytebuffer cache with small_buffer_size [1kb], large_buffer_size [1mb], small_cache_size [10mb], large_cache_size [500mb], direct [true]
+DEBUG 2013-11-25 10:41:55,889 [main] - [test-node] using script cache with max_size [500], expire [null]
+DEBUG 2013-11-25 10:41:55,896 [main] - [test-node] using node_concurrent_recoveries [2], node_initial_primaries_recoveries [4]
+DEBUG 2013-11-25 10:41:55,897 [main] - [test-node] using [cluster.routing.allocation.allow_rebalance] with [indices_all_active]
+DEBUG 2013-11-25 10:41:55,898 [main] - [test-node] using [cluster_concurrent_rebalance] with [2]
+DEBUG 2013-11-25 10:41:55,902 [main] - [test-node] using initial_shards [quorum], list_timeout [30s]
+DEBUG 2013-11-25 10:41:56,014 [main] - [test-node] using max_bytes_per_sec[20mb], concurrent_streams [3], file_chunk_size [512kb], translog_size [512kb], translog_ops [1000], and compress [true]
+DEBUG 2013-11-25 10:41:56,067 [main] - [test-node] using index_buffer_size [176.3mb], with min_shard_index_buffer_size [4mb], max_shard_index_buffer_size [512mb], shard_inactive_time [30m]
+DEBUG 2013-11-25 10:41:56,069 [main] - [test-node] using [node] weighted filter cache with size [20%], actual_size [352.7mb], expire [null], clean_interval [1m]
+DEBUG 2013-11-25 10:41:56,071 [main] - [test-node] using size [-1] [-1b], expire [null]
+DEBUG 2013-11-25 10:41:56,089 [main] - [test-node] using gateway.local.auto_import_dangled [YES], with gateway.local.dangling_timeout [2h]
+DEBUG 2013-11-25 10:41:56,090 [main] - [test-node] took 0s to load state
+DEBUG 2013-11-25 10:41:56,091 [main] - [test-node] took 0s to load started shards state
+DEBUG 2013-11-25 10:41:56,095 [main] - [test-node] using enabled [false], host [null], port [9700-9800], bulk_actions [1000], bulk_size [5mb], flush_interval [5s], concurrent_requests [4]
+DEBUG 2013-11-25 10:41:56,099 [main] - [test-node] using node_concurrent_recoveries [2], node_initial_primaries_recoveries [4]
+DEBUG 2013-11-25 10:41:56,100 [main] - [test-node] using [cluster.routing.allocation.allow_rebalance] with [indices_all_active]
+DEBUG 2013-11-25 10:41:56,100 [main] - [test-node] using [cluster_concurrent_rebalance] with [2]
+DEBUG 2013-11-25 10:41:56,100 [main] - [test-node] using node_concurrent_recoveries [2], node_initial_primaries_recoveries [4]
+DEBUG 2013-11-25 10:41:56,101 [main] - [test-node] using [cluster.routing.allocation.allow_rebalance] with [indices_all_active]
+DEBUG 2013-11-25 10:41:56,101 [main] - [test-node] using [cluster_concurrent_rebalance] with [2]
+INFO  2013-11-25 10:41:56,109 [main] - [test-node] initialized
+INFO  2013-11-25 10:41:56,109 [main] - [test-node] starting ...
+INFO  2013-11-25 10:41:56,116 [main] - [test-node] bound_address {local[1]}, publish_address {local[1]}
+DEBUG 2013-11-25 10:41:56,117 [main] - [test-node] Connected to cluster [Cluster [elasticsearch]]
+DEBUG 2013-11-25 10:41:56,122 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-disco-initial_connect(master)]: execute
+DEBUG 2013-11-25 10:41:56,123 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [1], source [local-disco-initial_connect(master)]
+INFO  2013-11-25 10:41:56,125 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] new_master [test-node][1][local[1]]{local=true}, reason: local-disco-initial_connect(master)
+DEBUG 2013-11-25 10:41:56,126 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 1
+DEBUG 2013-11-25 10:41:56,126 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 1
+DEBUG 2013-11-25 10:41:56,128 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:56,128 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:41:56,129 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-disco-initial_connect(master)]: done applying updated cluster_state (version: 1)
+INFO  2013-11-25 10:41:56,129 [main] - [test-node] elasticsearch/1
+DEBUG 2013-11-25 10:41:56,145 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-gateway-elected-state]: execute
+INFO  2013-11-25 10:41:56,146 [main] - [test-node] started
+DEBUG 2013-11-25 10:41:56,153 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [2], source [local-gateway-elected-state]
+DEBUG 2013-11-25 10:41:56,153 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 2
+DEBUG 2013-11-25 10:41:56,158 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 2
+DEBUG 2013-11-25 10:41:56,164 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:56,164 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+INFO  2013-11-25 10:41:56,250 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] recovered [0] indices into cluster_state
+DEBUG 2013-11-25 10:41:56,250 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-gateway-elected-state]: done applying updated cluster_state (version: 2)
+DEBUG 2013-11-25 10:41:56,377 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [create-index [users], cause [api]]: execute
+DEBUG 2013-11-25 10:41:56,469 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [users], shards [1]/[1]
+DEBUG 2013-11-25 10:41:56,762 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:56,762 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:56,775 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+INFO  2013-11-25 10:41:56,937 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] creating index, cause [api], shards [1]/[1], mappings [core]
+DEBUG 2013-11-25 10:41:56,949 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] full cache clear, reason [close]
+DEBUG 2013-11-25 10:41:56,950 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [3], source [create-index [users], cause [api]]
+DEBUG 2013-11-25 10:41:56,950 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 3
+DEBUG 2013-11-25 10:41:56,950 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 3
+DEBUG 2013-11-25 10:41:56,950 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] creating index
+DEBUG 2013-11-25 10:41:56,951 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [users], shards [1]/[1]
+DEBUG 2013-11-25 10:41:56,993 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:56,994 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:56,995 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:41:56,997 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:41:57,000 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index users, type core
+DEBUG 2013-11-25 10:41:57,001 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] creating shard
+DEBUG 2013-11-25 10:41:57,001 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] creating shard_id [0]
+DEBUG 2013-11-25 10:41:57,134 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:41:57,138 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:41:57,139 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:41:57,144 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] state: [CREATED]
+DEBUG 2013-11-25 10:41:57,145 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:41:57,152 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:41:57,153 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] starting recovery from local ...
+DEBUG 2013-11-25 10:41:57,154 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:57,154 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:41:57,160 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] starting engine
+DEBUG 2013-11-25 10:41:57,211 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [create-index [users], cause [api]]: done applying updated cluster_state (version: 3)
+DEBUG 2013-11-25 10:41:57,211 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [create-index [testindex], cause [api]]: execute
+DEBUG 2013-11-25 10:41:57,211 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [testindex], shards [1]/[1]
+DEBUG 2013-11-25 10:41:57,254 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:57,254 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:57,255 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+INFO  2013-11-25 10:41:57,258 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] creating index, cause [api], shards [1]/[1], mappings [core]
+DEBUG 2013-11-25 10:41:57,260 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] full cache clear, reason [close]
+DEBUG 2013-11-25 10:41:57,260 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [4], source [create-index [testindex], cause [api]]
+DEBUG 2013-11-25 10:41:57,260 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 4
+DEBUG 2013-11-25 10:41:57,260 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 4
+DEBUG 2013-11-25 10:41:57,261 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] creating index
+DEBUG 2013-11-25 10:41:57,261 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [testindex], shards [1]/[1]
+DEBUG 2013-11-25 10:41:57,301 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:57,301 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:57,302 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:41:57,304 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:41:57,305 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index testindex, type core
+DEBUG 2013-11-25 10:41:57,306 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] creating shard
+DEBUG 2013-11-25 10:41:57,306 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] creating shard_id [0]
+DEBUG 2013-11-25 10:41:57,321 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:41:57,322 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:41:57,322 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:41:57,323 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] state: [CREATED]
+DEBUG 2013-11-25 10:41:57,323 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:41:57,324 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:41:57,324 [elasticsearch[test-node][generic][T#1]] - [test-node] [testindex][0] starting recovery from local ...
+DEBUG 2013-11-25 10:41:57,324 [elasticsearch[test-node][generic][T#1]] - [test-node] [testindex][0] starting engine
+DEBUG 2013-11-25 10:41:57,324 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:57,325 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:41:57,342 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:41:57,343 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:41:57,343 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery from gateway, no translog]
+DEBUG 2013-11-25 10:41:57,344 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] recovery completed from [local], took [191ms]
+DEBUG 2013-11-25 10:41:57,344 [elasticsearch[test-node][generic][T#2]] - [test-node] sending shard started for [users][0], node[1], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:57,344 [elasticsearch[test-node][generic][T#2]] - [test-node] received shard started for [users][0], node[1], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:57,378 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [create-index [testindex], cause [api]]: done applying updated cluster_state (version: 4)
+DEBUG 2013-11-25 10:41:57,378 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [create-index [vertices], cause [api]]: execute
+DEBUG 2013-11-25 10:41:57,378 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [vertices], shards [1]/[1]
+DEBUG 2013-11-25 10:41:57,420 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:57,420 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:57,422 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+INFO  2013-11-25 10:41:57,425 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] creating index, cause [api], shards [1]/[1], mappings [core]
+DEBUG 2013-11-25 10:41:57,426 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] full cache clear, reason [close]
+DEBUG 2013-11-25 10:41:57,427 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [5], source [create-index [vertices], cause [api]]
+DEBUG 2013-11-25 10:41:57,427 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 5
+DEBUG 2013-11-25 10:41:57,427 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 5
+DEBUG 2013-11-25 10:41:57,427 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] creating index
+DEBUG 2013-11-25 10:41:57,427 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [vertices], shards [1]/[1]
+DEBUG 2013-11-25 10:41:57,474 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:57,475 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:57,476 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:41:57,477 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:41:57,479 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index vertices, type core
+DEBUG 2013-11-25 10:41:57,479 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] sending shard started for [users][0], node[1], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]
+DEBUG 2013-11-25 10:41:57,479 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] received shard started for [users][0], node[1], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]
+DEBUG 2013-11-25 10:41:57,479 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] creating shard
+DEBUG 2013-11-25 10:41:57,479 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] creating shard_id [0]
+DEBUG 2013-11-25 10:41:57,487 [elasticsearch[test-node][generic][T#1]] - [test-node] [testindex][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:41:57,487 [elasticsearch[test-node][generic][T#1]] - [test-node] [testindex][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:41:57,487 [elasticsearch[test-node][generic][T#1]] - [test-node] [testindex][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery from gateway, no translog]
+DEBUG 2013-11-25 10:41:57,487 [elasticsearch[test-node][generic][T#1]] - [test-node] [testindex][0] recovery completed from [local], took [163ms]
+DEBUG 2013-11-25 10:41:57,487 [elasticsearch[test-node][generic][T#1]] - [test-node] sending shard started for [testindex][0], node[1], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:57,487 [elasticsearch[test-node][generic][T#1]] - [test-node] received shard started for [testindex][0], node[1], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:57,502 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:41:57,503 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:41:57,503 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:41:57,504 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] state: [CREATED]
+DEBUG 2013-11-25 10:41:57,504 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:41:57,505 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:41:57,505 [elasticsearch[test-node][generic][T#1]] - [test-node] [vertices][0] starting recovery from local ...
+DEBUG 2013-11-25 10:41:57,505 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:57,506 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:41:57,505 [elasticsearch[test-node][generic][T#1]] - [test-node] [vertices][0] starting engine
+DEBUG 2013-11-25 10:41:57,562 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [create-index [vertices], cause [api]]: done applying updated cluster_state (version: 5)
+DEBUG 2013-11-25 10:41:57,562 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [create-index [edges], cause [api]]: execute
+DEBUG 2013-11-25 10:41:57,562 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [edges], shards [1]/[1]
+DEBUG 2013-11-25 10:41:57,599 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:57,600 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:57,601 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+INFO  2013-11-25 10:41:57,604 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] creating index, cause [api], shards [1]/[1], mappings [core]
+DEBUG 2013-11-25 10:41:57,605 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] full cache clear, reason [close]
+DEBUG 2013-11-25 10:41:57,606 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [6], source [create-index [edges], cause [api]]
+DEBUG 2013-11-25 10:41:57,606 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 6
+DEBUG 2013-11-25 10:41:57,606 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 6
+DEBUG 2013-11-25 10:41:57,606 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] creating index
+DEBUG 2013-11-25 10:41:57,607 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [edges], shards [1]/[1]
+DEBUG 2013-11-25 10:41:57,644 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:57,645 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:57,647 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:41:57,649 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:41:57,650 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index edges, type core
+DEBUG 2013-11-25 10:41:57,651 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] sending shard started for [users][0], node[1], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]
+DEBUG 2013-11-25 10:41:57,651 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] received shard started for [users][0], node[1], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]
+DEBUG 2013-11-25 10:41:57,651 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] sending shard started for [testindex][0], node[1], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]
+DEBUG 2013-11-25 10:41:57,651 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] received shard started for [testindex][0], node[1], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]
+DEBUG 2013-11-25 10:41:57,651 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] creating shard
+DEBUG 2013-11-25 10:41:57,651 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] creating shard_id [0]
+DEBUG 2013-11-25 10:41:57,666 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:41:57,667 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:41:57,667 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:41:57,668 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] state: [CREATED]
+DEBUG 2013-11-25 10:41:57,668 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:41:57,669 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:41:57,669 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] starting recovery from local ...
+DEBUG 2013-11-25 10:41:57,670 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] starting engine
+DEBUG 2013-11-25 10:41:57,670 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:57,670 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:41:57,670 [main] - ElasticSearchEmbeddedModel started org.elasticsearch.client.node.NodeClient@1e69dff6
+DEBUG 2013-11-25 10:41:57,681 [main] - AbstractBaseElasticSearchModel.putDocument-2 testindex core TheRoot true
+DEBUG 2013-11-25 10:41:57,708 [elasticsearch[test-node][generic][T#1]] - [test-node] [vertices][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:41:57,709 [elasticsearch[test-node][generic][T#1]] - [test-node] [vertices][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:41:57,709 [elasticsearch[test-node][generic][T#1]] - [test-node] [vertices][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery from gateway, no translog]
+DEBUG 2013-11-25 10:41:57,709 [elasticsearch[test-node][generic][T#1]] - [test-node] [vertices][0] recovery completed from [local], took [204ms]
+DEBUG 2013-11-25 10:41:57,709 [elasticsearch[test-node][generic][T#1]] - [test-node] sending shard started for [vertices][0], node[1], [P], s[INITIALIZING], indexUUID [z4Rad4fDTIaov1E5_pr6xA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:57,709 [elasticsearch[test-node][generic][T#1]] - [test-node] received shard started for [vertices][0], node[1], [P], s[INITIALIZING], indexUUID [z4Rad4fDTIaov1E5_pr6xA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:57,795 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [create-index [edges], cause [api]]: done applying updated cluster_state (version: 6)
+DEBUG 2013-11-25 10:41:57,795 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([users][0], node[1], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:41:57,795 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] will apply shard started [users][0], node[1], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:57,795 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] will apply shard started [users][0], node[1], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]
+DEBUG 2013-11-25 10:41:57,796 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] will apply shard started [testindex][0], node[1], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:57,796 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] will apply shard started [users][0], node[1], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]
+DEBUG 2013-11-25 10:41:57,796 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] will apply shard started [testindex][0], node[1], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]
+DEBUG 2013-11-25 10:41:57,796 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] will apply shard started [vertices][0], node[1], [P], s[INITIALIZING], indexUUID [z4Rad4fDTIaov1E5_pr6xA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:57,798 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [7], source [shard-started ([users][0], node[1], [P], s[INITIALIZING]), reason [after recovery from gateway]]
+DEBUG 2013-11-25 10:41:57,798 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 7
+DEBUG 2013-11-25 10:41:57,798 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 7
+DEBUG 2013-11-25 10:41:57,799 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:41:57,799 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:41:57,799 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:41:57,800 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:57,800 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:41:57,974 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:41:57,975 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:41:57,975 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery from gateway, no translog]
+DEBUG 2013-11-25 10:41:57,975 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] recovery completed from [local], took [306ms]
+DEBUG 2013-11-25 10:41:57,975 [elasticsearch[test-node][generic][T#2]] - [test-node] sending shard started for [edges][0], node[1], [P], s[INITIALIZING], indexUUID [lTWYCZo5SoWQRbEP0cHLEA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:57,975 [elasticsearch[test-node][generic][T#2]] - [test-node] received shard started for [edges][0], node[1], [P], s[INITIALIZING], indexUUID [lTWYCZo5SoWQRbEP0cHLEA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:58,085 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([users][0], node[1], [P], s[INITIALIZING]), reason [after recovery from gateway]]: done applying updated cluster_state (version: 7)
+DEBUG 2013-11-25 10:41:58,086 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([users][0], node[1], [P], s[INITIALIZING]), reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]]: execute
+DEBUG 2013-11-25 10:41:58,086 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] will apply shard started [edges][0], node[1], [P], s[INITIALIZING], indexUUID [lTWYCZo5SoWQRbEP0cHLEA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:58,093 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [8], source [shard-started ([users][0], node[1], [P], s[INITIALIZING]), reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]]
+DEBUG 2013-11-25 10:41:58,093 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 8
+DEBUG 2013-11-25 10:41:58,094 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 8
+DEBUG 2013-11-25 10:41:58,096 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:41:58,097 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:58,098 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:41:58,173 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([users][0], node[1], [P], s[INITIALIZING]), reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]]: done applying updated cluster_state (version: 8)
+DEBUG 2013-11-25 10:41:58,173 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([testindex][0], node[1], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:41:58,173 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([testindex][0], node[1], [P], s[INITIALIZING]), reason [after recovery from gateway]]: no change in cluster_state
+DEBUG 2013-11-25 10:41:58,173 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([users][0], node[1], [P], s[INITIALIZING]), reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]]: execute
+DEBUG 2013-11-25 10:41:58,173 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([users][0], node[1], [P], s[INITIALIZING]), reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]]: no change in cluster_state
+DEBUG 2013-11-25 10:41:58,173 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([testindex][0], node[1], [P], s[INITIALIZING]), reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]]: execute
+DEBUG 2013-11-25 10:41:58,173 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([testindex][0], node[1], [P], s[INITIALIZING]), reason [master [test-node][1][local[1]]{local=true} marked shard as initializing, but shard state is [POST_RECOVERY], mark shard as started]]: no change in cluster_state
+DEBUG 2013-11-25 10:41:58,175 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([vertices][0], node[1], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:41:58,175 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([vertices][0], node[1], [P], s[INITIALIZING]), reason [after recovery from gateway]]: no change in cluster_state
+DEBUG 2013-11-25 10:41:58,175 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([edges][0], node[1], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:41:58,175 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([edges][0], node[1], [P], s[INITIALIZING]), reason [after recovery from gateway]]: no change in cluster_state
+DEBUG 2013-11-25 10:41:58,201 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [testindex][core]]: execute
+DEBUG 2013-11-25 10:41:58,208 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] update_mapping [core] (dynamic) with source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"nameString":{"type":"string"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:41:58,209 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [9], source [update-mapping [testindex][core]]
+DEBUG 2013-11-25 10:41:58,209 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 9
+DEBUG 2013-11-25 10:41:58,210 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 9
+DEBUG 2013-11-25 10:41:58,210 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:58,210 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:41:58,245 [main] - AbstractBaseElasticSearchModel.putDocument-2 testindex core AssociationType true
+DEBUG 2013-11-25 10:41:58,247 [main] - AbstractBaseElasticSearchModel.putDocument-2 testindex core CausalAssociation true
+DEBUG 2013-11-25 10:41:58,249 [main] - AbstractBaseElasticSearchModel.putDocument-2 testindex core MoleculeType true
+DEBUG 2013-11-25 10:41:58,253 [main] - AbstractBaseElasticSearchModel.putDocument-2 testindex core ProcessType true
+DEBUG 2013-11-25 10:41:58,254 [main] - AbstractBaseElasticSearchModel.putDocument-2 testindex core AtmosphericProcess true
+DEBUG 2013-11-25 10:41:58,256 [main] - AbstractBaseElasticSearchModel.putDocument-2 testindex core CO2 true
+DEBUG 2013-11-25 10:41:58,257 [main] - AbstractBaseElasticSearchModel.putDocument-2 testindex core ClimateChange true
+DEBUG 2013-11-25 10:41:58,258 [main] - AbstractBaseElasticSearchModel.putDocument-2 testindex core CO2.CausalAssociation.ClimateChange true
+DEBUG 2013-11-25 10:41:58,261 [main] - AbstractBaseElasticSearchModel.putDocument-2 testindex core CO2 true
+DEBUG 2013-11-25 10:41:58,264 [main] - AbstractBaseElasticSearchModel.putDocument-2 testindex core ClimateChange true
+DEBUG 2013-11-25 10:41:58,266 [main] - AbstractBaseElasticSearchModel.getDocument- testindex core CO2.CausalAssociation.ClimateChange
+DEBUG 2013-11-25 10:41:58,268 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [testindex][core]]: done applying updated cluster_state (version: 9)
+DEBUG 2013-11-25 10:41:58,268 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [testindex][core]]: execute
+DEBUG 2013-11-25 10:41:58,270 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] update_mapping [core] (dynamic) with source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"nameString":{"type":"string"},"sourceTopic":{"type":"string"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"targetTopic":{"type":"string"},"tuples":{"type":"string"}}}}]
+DEBUG 2013-11-25 10:41:58,270 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] update_mapping [core] ignoring mapping update task as it's source is equal to ours
+DEBUG 2013-11-25 10:41:58,270 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [10], source [update-mapping [testindex][core]]
+DEBUG 2013-11-25 10:41:58,271 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 10
+DEBUG 2013-11-25 10:41:58,271 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 10
+DEBUG 2013-11-25 10:41:58,271 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:58,272 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+INFO  2013-11-25 10:41:58,272 [main] - [test-node] stopping ...
+DEBUG 2013-11-25 10:41:58,275 [shards_shutdown[T#1]] - [test-node] [users][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:41:58,279 [indices_shutdown[T#1]] - [test-node] [users] full cache clear, reason [close]
+DEBUG 2013-11-25 10:41:58,280 [shards_shutdown[T#2]] - [test-node] [vertices][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:41:58,283 [indices_shutdown[T#4]] - [test-node] [vertices] full cache clear, reason [close]
+DEBUG 2013-11-25 10:41:58,284 [shards_shutdown[T#3]] - [test-node] [edges][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:41:58,287 [indices_shutdown[T#3]] - [test-node] [edges] full cache clear, reason [close]
+DEBUG 2013-11-25 10:41:58,288 [shards_shutdown[T#4]] - [test-node] [testindex][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:41:58,312 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [testindex][core]]: done applying updated cluster_state (version: 10)
+DEBUG 2013-11-25 10:41:58,312 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [testindex][core]]: execute
+DEBUG 2013-11-25 10:41:58,312 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [testindex][core]]: no change in cluster_state
+DEBUG 2013-11-25 10:41:58,353 [indices_shutdown[T#2]] - [test-node] [testindex] full cache clear, reason [close]
+INFO  2013-11-25 10:41:58,359 [main] - [test-node] stopped
+INFO  2013-11-25 10:41:58,359 [main] - [test-node] closing ...
+INFO  2013-11-25 10:41:58,368 [main] - [test-node] closed
+INFO  2013-11-25 10:41:58,375 [main] - [test-node] version[0.90.7], pid[3756], build[36897d0/2013-11-13T12:06:54Z]
+INFO  2013-11-25 10:41:58,375 [main] - [test-node] initializing ...
+DEBUG 2013-11-25 10:41:58,375 [main] - [test-node] using home [C:\projects\keclipse\workspace\JSONBlobStore], config [C:\projects\keclipse\workspace\JSONBlobStore\config], data [[data]], logs [C:\projects\keclipse\workspace\JSONBlobStore\logs], work [data\work], plugins [C:\projects\keclipse\workspace\JSONBlobStore\plugins]
+INFO  2013-11-25 10:41:58,376 [main] - [test-node] loaded [], sites []
+DEBUG 2013-11-25 10:41:58,377 [main] - [test-node] using node location [[data\elasticsearch\nodes\0]], local_node_id [0]
+DEBUG 2013-11-25 10:41:58,532 [main] - [test-node] creating thread_pool [generic], type [cached], keep_alive [30s]
+DEBUG 2013-11-25 10:41:58,532 [main] - [test-node] creating thread_pool [index], type [fixed], size [4], queue_size [200]
+DEBUG 2013-11-25 10:41:58,532 [main] - [test-node] creating thread_pool [bulk], type [fixed], size [4], queue_size [50]
+DEBUG 2013-11-25 10:41:58,532 [main] - [test-node] creating thread_pool [get], type [fixed], size [4], queue_size [1k]
+DEBUG 2013-11-25 10:41:58,533 [main] - [test-node] creating thread_pool [search], type [fixed], size [12], queue_size [1k]
+DEBUG 2013-11-25 10:41:58,533 [main] - [test-node] creating thread_pool [suggest], type [fixed], size [4], queue_size [1k]
+DEBUG 2013-11-25 10:41:58,533 [main] - [test-node] creating thread_pool [percolate], type [fixed], size [4], queue_size [1k]
+DEBUG 2013-11-25 10:41:58,533 [main] - [test-node] creating thread_pool [management], type [scaling], min [1], size [5], keep_alive [5m]
+DEBUG 2013-11-25 10:41:58,533 [main] - [test-node] creating thread_pool [flush], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:41:58,533 [main] - [test-node] creating thread_pool [merge], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:41:58,533 [main] - [test-node] creating thread_pool [refresh], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:41:58,533 [main] - [test-node] creating thread_pool [warmer], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:41:58,533 [main] - [test-node] creating thread_pool [snapshot], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:41:58,533 [main] - [test-node] creating thread_pool [optimize], type [fixed], size [1], queue_size [null]
+DEBUG 2013-11-25 10:41:58,540 [main] - [test-node] enabled [true], last_gc_enabled [false], interval [1s], gc_threshold [{default=GcThreshold{name='default', warnThreshold=10000, infoThreshold=5000, debugThreshold=2000}, ParNew=GcThreshold{name='ParNew', warnThreshold=1000, infoThreshold=700, debugThreshold=400}, ConcurrentMarkSweep=GcThreshold{name='ConcurrentMarkSweep', warnThreshold=10000, infoThreshold=5000, debugThreshold=2000}}]
+DEBUG 2013-11-25 10:41:58,540 [main] - [test-node] Using probe [org.elasticsearch.monitor.os.JmxOsProbe@792bf678] with refresh_interval [1s]
+DEBUG 2013-11-25 10:41:58,541 [main] - [test-node] Using probe [org.elasticsearch.monitor.process.JmxProcessProbe@4b33650d] with refresh_interval [1s]
+DEBUG 2013-11-25 10:41:58,541 [main] - [test-node] Using refresh_interval [1s]
+DEBUG 2013-11-25 10:41:58,541 [main] - [test-node] Using probe [org.elasticsearch.monitor.network.JmxNetworkProbe@45d9d7be] with refresh_interval [5s]
+DEBUG 2013-11-25 10:41:58,756 [main] - [test-node] net_info
+host [Lenovo-PC]
+lo	display_name [Software Loopback Interface 1]
+		address [/0:0:0:0:0:0:0:1] [/127.0.0.1] 
+		mtu [-1] multicast [true] ptp [false] loopback [true] up [true] virtual [false]
+net0	display_name [WAN Miniport (SSTP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+net1	display_name [WAN Miniport (L2TP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+net2	display_name [WAN Miniport (PPTP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+ppp0	display_name [WAN Miniport (PPPOE)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth0	display_name [WAN Miniport (IPv6)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth1	display_name [WAN Miniport (Network Monitor)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth2	display_name [WAN Miniport (IP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+ppp1	display_name [RAS Async Adapter]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth3	display_name [Realtek PCIe FE Family Controller]
+		address [/fe80:0:0:0:e5b0:c96a:2d9c:7188%10] [/10.1.10.180] 
+		mtu [1500] multicast [true] ptp [false] loopback [false] up [true] virtual [false]
+net3	display_name [Microsoft ISATAP Adapter]
+		address [/fe80:0:0:0:0:5efe:a01:ab4%11] 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [false] virtual [false]
+net4	display_name [Microsoft 6to4 Adapter]
+		address 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [false] virtual [false]
+net5	display_name [Microsoft ISATAP Adapter #2]
+		address 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [false] virtual [false]
+net6	display_name [Teredo Tunneling Pseudo-Interface]
+		address [/2001:0:9d38:6abd:55:2843:f5fe:f54b] [/fe80:0:0:0:55:2843:f5fe:f54b%14] 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [true] virtual [false]
+net7	display_name [WAN Miniport (IKEv2)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth4	display_name [Iomega Virtual Ethernet Adapter]
+		address [/fe80:0:0:0:8e8:8e8e:5089:d63e%16] 
+		mtu [1500] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth5	display_name [Realtek PCIe FE Family Controller-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth6	display_name [Realtek PCIe FE Family Controller-WFP LightWeight Filter-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth7	display_name [WAN Miniport (Network Monitor)-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth8	display_name [WAN Miniport (IP)-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth9	display_name [WAN Miniport (IPv6)-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth10	display_name [Iomega Virtual Ethernet Adapter-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth11	display_name [Iomega Virtual Ethernet Adapter-WFP LightWeight Filter-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+
+DEBUG 2013-11-25 10:41:58,759 [main] - [test-node] Using probe [org.elasticsearch.monitor.fs.JmxFsProbe@403525a2] with refresh_interval [1s]
+DEBUG 2013-11-25 10:41:58,760 [main] - [test-node] using indices.store.throttle.type [MERGE], with index.store.throttle.max_bytes_per_sec [20mb]
+DEBUG 2013-11-25 10:41:58,760 [main] - [test-node] using bytebuffer cache with small_buffer_size [1kb], large_buffer_size [1mb], small_cache_size [10mb], large_cache_size [500mb], direct [true]
+DEBUG 2013-11-25 10:41:58,761 [main] - [test-node] using script cache with max_size [500], expire [null]
+DEBUG 2013-11-25 10:41:58,762 [main] - [test-node] using node_concurrent_recoveries [2], node_initial_primaries_recoveries [4]
+DEBUG 2013-11-25 10:41:58,762 [main] - [test-node] using [cluster.routing.allocation.allow_rebalance] with [indices_all_active]
+DEBUG 2013-11-25 10:41:58,763 [main] - [test-node] using [cluster_concurrent_rebalance] with [2]
+DEBUG 2013-11-25 10:41:58,763 [main] - [test-node] using initial_shards [quorum], list_timeout [30s]
+DEBUG 2013-11-25 10:41:58,771 [main] - [test-node] using max_bytes_per_sec[20mb], concurrent_streams [3], file_chunk_size [512kb], translog_size [512kb], translog_ops [1000], and compress [true]
+DEBUG 2013-11-25 10:41:58,779 [main] - [test-node] using index_buffer_size [176.3mb], with min_shard_index_buffer_size [4mb], max_shard_index_buffer_size [512mb], shard_inactive_time [30m]
+DEBUG 2013-11-25 10:41:58,780 [main] - [test-node] using [node] weighted filter cache with size [20%], actual_size [352.7mb], expire [null], clean_interval [1m]
+DEBUG 2013-11-25 10:41:58,780 [main] - [test-node] using size [-1] [-1b], expire [null]
+DEBUG 2013-11-25 10:41:58,782 [main] - [test-node] using gateway.local.auto_import_dangled [YES], with gateway.local.dangling_timeout [2h]
+DEBUG 2013-11-25 10:41:58,793 [main] - [test-node] took 10ms to load state
+DEBUG 2013-11-25 10:41:58,798 [main] - [test-node] took 5ms to load started shards state
+DEBUG 2013-11-25 10:41:58,799 [main] - [test-node] using enabled [false], host [null], port [9700-9800], bulk_actions [1000], bulk_size [5mb], flush_interval [5s], concurrent_requests [4]
+DEBUG 2013-11-25 10:41:58,801 [main] - [test-node] using node_concurrent_recoveries [2], node_initial_primaries_recoveries [4]
+DEBUG 2013-11-25 10:41:58,802 [main] - [test-node] using [cluster.routing.allocation.allow_rebalance] with [indices_all_active]
+DEBUG 2013-11-25 10:41:58,802 [main] - [test-node] using [cluster_concurrent_rebalance] with [2]
+DEBUG 2013-11-25 10:41:58,802 [main] - [test-node] using node_concurrent_recoveries [2], node_initial_primaries_recoveries [4]
+DEBUG 2013-11-25 10:41:58,802 [main] - [test-node] using [cluster.routing.allocation.allow_rebalance] with [indices_all_active]
+DEBUG 2013-11-25 10:41:58,802 [main] - [test-node] using [cluster_concurrent_rebalance] with [2]
+INFO  2013-11-25 10:41:58,807 [main] - [test-node] initialized
+INFO  2013-11-25 10:41:58,808 [main] - [test-node] starting ...
+INFO  2013-11-25 10:41:58,809 [main] - [test-node] bound_address {local[2]}, publish_address {local[2]}
+DEBUG 2013-11-25 10:41:58,809 [main] - [test-node] Connected to cluster [Cluster [elasticsearch]]
+DEBUG 2013-11-25 10:41:58,809 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-disco-initial_connect(master)]: execute
+DEBUG 2013-11-25 10:41:58,810 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [1], source [local-disco-initial_connect(master)]
+INFO  2013-11-25 10:41:58,810 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] new_master [test-node][2][local[2]]{local=true}, reason: local-disco-initial_connect(master)
+DEBUG 2013-11-25 10:41:58,810 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 1
+DEBUG 2013-11-25 10:41:58,810 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 1
+DEBUG 2013-11-25 10:41:58,811 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-disco-initial_connect(master)]: done applying updated cluster_state (version: 1)
+INFO  2013-11-25 10:41:58,811 [main] - [test-node] elasticsearch/2
+DEBUG 2013-11-25 10:41:58,811 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:58,811 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+INFO  2013-11-25 10:41:58,815 [main] - [test-node] started
+DEBUG 2013-11-25 10:41:58,815 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-gateway-elected-state]: execute
+DEBUG 2013-11-25 10:41:58,819 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0]: allocating [[vertices][0], node[null], [P], s[UNASSIGNED]] to [[test-node][2][local[2]]{local=true}] on primary allocation
+DEBUG 2013-11-25 10:41:58,820 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0]: allocating [[users][0], node[null], [P], s[UNASSIGNED]] to [[test-node][2][local[2]]{local=true}] on primary allocation
+DEBUG 2013-11-25 10:41:58,821 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0]: allocating [[testindex][0], node[null], [P], s[UNASSIGNED]] to [[test-node][2][local[2]]{local=true}] on primary allocation
+DEBUG 2013-11-25 10:41:58,822 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0]: allocating [[edges][0], node[null], [P], s[UNASSIGNED]] to [[test-node][2][local[2]]{local=true}] on primary allocation
+DEBUG 2013-11-25 10:41:58,823 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [2], source [local-gateway-elected-state]
+DEBUG 2013-11-25 10:41:58,823 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 2
+DEBUG 2013-11-25 10:41:58,823 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 2
+DEBUG 2013-11-25 10:41:58,823 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] creating index
+DEBUG 2013-11-25 10:41:58,823 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [users], shards [1]/[1]
+DEBUG 2013-11-25 10:41:58,856 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:58,856 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:58,857 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:41:58,858 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] creating index
+DEBUG 2013-11-25 10:41:58,859 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [testindex], shards [1]/[1]
+DEBUG 2013-11-25 10:41:58,903 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:58,903 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:58,904 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:41:58,905 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] creating index
+DEBUG 2013-11-25 10:41:58,905 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [edges], shards [1]/[1]
+DEBUG 2013-11-25 10:41:58,938 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:58,939 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:58,940 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:41:58,941 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] creating index
+DEBUG 2013-11-25 10:41:58,941 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [vertices], shards [1]/[1]
+DEBUG 2013-11-25 10:41:58,974 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:41:58,974 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:41:58,975 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:41:58,976 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:41:58,978 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index users, type core
+DEBUG 2013-11-25 10:41:58,978 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"nameString":{"type":"string"},"sourceTopic":{"type":"string"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"targetTopic":{"type":"string"},"tuples":{"type":"string"}}}}]
+DEBUG 2013-11-25 10:41:58,980 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index testindex, type core
+DEBUG 2013-11-25 10:41:58,980 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:41:58,982 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index edges, type core
+DEBUG 2013-11-25 10:41:58,983 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:41:58,985 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index vertices, type core
+DEBUG 2013-11-25 10:41:58,985 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] creating shard
+DEBUG 2013-11-25 10:41:58,985 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] creating shard_id [0]
+DEBUG 2013-11-25 10:41:59,000 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:41:59,001 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:41:59,001 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:41:59,001 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] state: [CREATED]
+DEBUG 2013-11-25 10:41:59,002 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:41:59,002 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:41:59,002 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] creating shard
+DEBUG 2013-11-25 10:41:59,002 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] starting recovery from local ...
+DEBUG 2013-11-25 10:41:59,002 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] creating shard_id [0]
+DEBUG 2013-11-25 10:41:59,005 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] starting engine
+DEBUG 2013-11-25 10:41:59,015 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:41:59,015 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:41:59,016 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:41:59,016 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] state: [CREATED]
+DEBUG 2013-11-25 10:41:59,016 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:41:59,017 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:41:59,018 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] creating shard
+DEBUG 2013-11-25 10:41:59,018 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] creating shard_id [0]
+DEBUG 2013-11-25 10:41:59,018 [elasticsearch[test-node][generic][T#3]] - [test-node] [testindex][0] starting recovery from local ...
+DEBUG 2013-11-25 10:41:59,020 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery]
+DEBUG 2013-11-25 10:41:59,020 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:41:59,021 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:41:59,021 [elasticsearch[test-node][generic][T#3]] - [test-node] [testindex][0] starting engine
+DEBUG 2013-11-25 10:41:59,021 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] recovery completed from [local], took [19ms]
+DEBUG 2013-11-25 10:41:59,021 [elasticsearch[test-node][generic][T#2]] - [test-node] sending shard started for [users][0], node[2], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:59,021 [elasticsearch[test-node][generic][T#2]] - [test-node] received shard started for [users][0], node[2], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:59,031 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:41:59,031 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:41:59,031 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:41:59,032 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] state: [CREATED]
+DEBUG 2013-11-25 10:41:59,032 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:41:59,033 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:41:59,033 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] creating shard
+DEBUG 2013-11-25 10:41:59,033 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] starting recovery from local ...
+DEBUG 2013-11-25 10:41:59,033 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] creating shard_id [0]
+DEBUG 2013-11-25 10:41:59,036 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] starting engine
+DEBUG 2013-11-25 10:41:59,046 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery]
+DEBUG 2013-11-25 10:41:59,046 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:41:59,046 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:41:59,046 [elasticsearch[test-node][generic][T#2]] - [test-node] [edges][0] recovery completed from [local], took [13ms]
+DEBUG 2013-11-25 10:41:59,046 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:41:59,046 [elasticsearch[test-node][generic][T#2]] - [test-node] sending shard started for [edges][0], node[2], [P], s[INITIALIZING], indexUUID [lTWYCZo5SoWQRbEP0cHLEA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:59,047 [elasticsearch[test-node][generic][T#2]] - [test-node] received shard started for [edges][0], node[2], [P], s[INITIALIZING], indexUUID [lTWYCZo5SoWQRbEP0cHLEA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:59,047 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:41:59,048 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:41:59,048 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] state: [CREATED]
+DEBUG 2013-11-25 10:41:59,049 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:41:59,049 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:41:59,050 [elasticsearch[test-node][generic][T#2]] - [test-node] [vertices][0] starting recovery from local ...
+DEBUG 2013-11-25 10:41:59,051 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:59,052 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:41:59,053 [elasticsearch[test-node][generic][T#2]] - [test-node] [vertices][0] starting engine
+DEBUG 2013-11-25 10:41:59,062 [elasticsearch[test-node][generic][T#2]] - [test-node] [vertices][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery]
+DEBUG 2013-11-25 10:41:59,062 [elasticsearch[test-node][generic][T#2]] - [test-node] [vertices][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:41:59,062 [elasticsearch[test-node][generic][T#2]] - [test-node] [vertices][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:41:59,062 [elasticsearch[test-node][generic][T#2]] - [test-node] [vertices][0] recovery completed from [local], took [12ms]
+DEBUG 2013-11-25 10:41:59,062 [elasticsearch[test-node][generic][T#2]] - [test-node] sending shard started for [vertices][0], node[2], [P], s[INITIALIZING], indexUUID [z4Rad4fDTIaov1E5_pr6xA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:59,063 [elasticsearch[test-node][generic][T#2]] - [test-node] received shard started for [vertices][0], node[2], [P], s[INITIALIZING], indexUUID [z4Rad4fDTIaov1E5_pr6xA], reason [after recovery from gateway]
+INFO  2013-11-25 10:41:59,133 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] recovered [4] indices into cluster_state
+DEBUG 2013-11-25 10:41:59,133 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-gateway-elected-state]: done applying updated cluster_state (version: 2)
+DEBUG 2013-11-25 10:41:59,133 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([users][0], node[2], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:41:59,133 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] will apply shard started [users][0], node[2], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:59,133 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] will apply shard started [edges][0], node[2], [P], s[INITIALIZING], indexUUID [lTWYCZo5SoWQRbEP0cHLEA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:59,133 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] will apply shard started [vertices][0], node[2], [P], s[INITIALIZING], indexUUID [z4Rad4fDTIaov1E5_pr6xA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:59,134 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [3], source [shard-started ([users][0], node[2], [P], s[INITIALIZING]), reason [after recovery from gateway]]
+DEBUG 2013-11-25 10:41:59,134 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 3
+DEBUG 2013-11-25 10:41:59,135 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 3
+DEBUG 2013-11-25 10:41:59,135 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:41:59,136 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:41:59,137 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:41:59,137 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:59,137 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:41:59,475 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([users][0], node[2], [P], s[INITIALIZING]), reason [after recovery from gateway]]: done applying updated cluster_state (version: 3)
+DEBUG 2013-11-25 10:41:59,476 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([edges][0], node[2], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:41:59,476 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([edges][0], node[2], [P], s[INITIALIZING]), reason [after recovery from gateway]]: no change in cluster_state
+DEBUG 2013-11-25 10:41:59,476 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([vertices][0], node[2], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:41:59,476 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([vertices][0], node[2], [P], s[INITIALIZING]), reason [after recovery from gateway]]: no change in cluster_state
+DEBUG 2013-11-25 10:41:59,627 [elasticsearch[test-node][generic][T#3]] - [test-node] [testindex][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery]
+DEBUG 2013-11-25 10:41:59,627 [elasticsearch[test-node][generic][T#3]] - [test-node] [testindex][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:41:59,627 [elasticsearch[test-node][generic][T#3]] - [test-node] [testindex][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:41:59,627 [elasticsearch[test-node][generic][T#3]] - [test-node] [testindex][0] recovery completed from [local], took [609ms]
+DEBUG 2013-11-25 10:41:59,627 [elasticsearch[test-node][generic][T#3]] - [test-node] sending shard started for [testindex][0], node[2], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:59,627 [elasticsearch[test-node][generic][T#3]] - [test-node] received shard started for [testindex][0], node[2], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:59,627 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([testindex][0], node[2], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:41:59,627 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] will apply shard started [testindex][0], node[2], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:41:59,628 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [4], source [shard-started ([testindex][0], node[2], [P], s[INITIALIZING]), reason [after recovery from gateway]]
+DEBUG 2013-11-25 10:41:59,628 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 4
+DEBUG 2013-11-25 10:41:59,629 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 4
+DEBUG 2013-11-25 10:41:59,629 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:41:59,630 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:41:59,630 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:41:59,677 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([testindex][0], node[2], [P], s[INITIALIZING]), reason [after recovery from gateway]]: done applying updated cluster_state (version: 4)
+DEBUG 2013-11-25 10:41:59,827 [main] - ElasticSearchEmbeddedModel started org.elasticsearch.client.node.NodeClient@37ff24f
+DEBUG 2013-11-25 10:41:59,828 [main] - AbstractBaseElasticSearchModel.listDocumentsByProperty testindex core subOf {"match": {"subOf": "TheRoot"}}
+DEBUG 2013-11-25 10:41:59,828 [main] - AbstractBaseElasticSearchModel.runQuery1- {"match": {"subOf": "TheRoot"}}
+DEBUG 2013-11-25 10:41:59,935 [main] - AbstractBaseElasticSearchModel.runQuery-1 3
+DEBUG 2013-11-25 10:41:59,935 [main] - AbstractBaseElasticSearchModel.listDocumentsByProperty testindex core instanceOf {"match": {"instanceOf": "AssociationType"}}
+DEBUG 2013-11-25 10:41:59,935 [main] - AbstractBaseElasticSearchModel.runQuery1- {"match": {"instanceOf": "AssociationType"}}
+DEBUG 2013-11-25 10:41:59,938 [main] - AbstractBaseElasticSearchModel.runQuery-1 1
+DEBUG 2013-11-25 10:41:59,941 [main] - AbstractBaseElasticSearchModel.runQuery2- {
+  "wildcard" : {
+    "locator" : {
+      "wildcard" : "CO2.CausalAssociation*"
+    }
+  }
+}
+DEBUG 2013-11-25 10:41:59,964 [main] - AbstractBaseElasticSearchModel.runQuery-1 1
+INFO  2013-11-25 10:41:59,964 [main] - [test-node] stopping ...
+DEBUG 2013-11-25 10:41:59,966 [shards_shutdown[T#1]] - [test-node] [users][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:41:59,969 [indices_shutdown[T#1]] - [test-node] [users] full cache clear, reason [close]
+DEBUG 2013-11-25 10:41:59,970 [shards_shutdown[T#2]] - [test-node] [vertices][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:41:59,972 [indices_shutdown[T#4]] - [test-node] [vertices] full cache clear, reason [close]
+DEBUG 2013-11-25 10:41:59,973 [shards_shutdown[T#3]] - [test-node] [edges][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:41:59,977 [indices_shutdown[T#3]] - [test-node] [edges] full cache clear, reason [close]
+DEBUG 2013-11-25 10:41:59,977 [shards_shutdown[T#4]] - [test-node] [testindex][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:41:59,982 [indices_shutdown[T#2]] - [test-node] [testindex] full cache clear, reason [close]
+INFO  2013-11-25 10:41:59,984 [main] - [test-node] stopped
+INFO  2013-11-25 10:41:59,984 [main] - [test-node] closing ...
+INFO  2013-11-25 10:41:59,990 [main] - [test-node] closed
+INFO  2013-11-25 10:41:59,995 [main] - [test-node] version[0.90.7], pid[3756], build[36897d0/2013-11-13T12:06:54Z]
+INFO  2013-11-25 10:41:59,995 [main] - [test-node] initializing ...
+DEBUG 2013-11-25 10:41:59,995 [main] - [test-node] using home [C:\projects\keclipse\workspace\JSONBlobStore], config [C:\projects\keclipse\workspace\JSONBlobStore\config], data [[data]], logs [C:\projects\keclipse\workspace\JSONBlobStore\logs], work [data\work], plugins [C:\projects\keclipse\workspace\JSONBlobStore\plugins]
+INFO  2013-11-25 10:41:59,996 [main] - [test-node] loaded [], sites []
+DEBUG 2013-11-25 10:41:59,997 [main] - [test-node] using node location [[data\elasticsearch\nodes\0]], local_node_id [0]
+DEBUG 2013-11-25 10:42:00,125 [main] - [test-node] creating thread_pool [generic], type [cached], keep_alive [30s]
+DEBUG 2013-11-25 10:42:00,125 [main] - [test-node] creating thread_pool [index], type [fixed], size [4], queue_size [200]
+DEBUG 2013-11-25 10:42:00,125 [main] - [test-node] creating thread_pool [bulk], type [fixed], size [4], queue_size [50]
+DEBUG 2013-11-25 10:42:00,125 [main] - [test-node] creating thread_pool [get], type [fixed], size [4], queue_size [1k]
+DEBUG 2013-11-25 10:42:00,125 [main] - [test-node] creating thread_pool [search], type [fixed], size [12], queue_size [1k]
+DEBUG 2013-11-25 10:42:00,125 [main] - [test-node] creating thread_pool [suggest], type [fixed], size [4], queue_size [1k]
+DEBUG 2013-11-25 10:42:00,125 [main] - [test-node] creating thread_pool [percolate], type [fixed], size [4], queue_size [1k]
+DEBUG 2013-11-25 10:42:00,126 [main] - [test-node] creating thread_pool [management], type [scaling], min [1], size [5], keep_alive [5m]
+DEBUG 2013-11-25 10:42:00,126 [main] - [test-node] creating thread_pool [flush], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:42:00,126 [main] - [test-node] creating thread_pool [merge], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:42:00,126 [main] - [test-node] creating thread_pool [refresh], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:42:00,126 [main] - [test-node] creating thread_pool [warmer], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:42:00,126 [main] - [test-node] creating thread_pool [snapshot], type [scaling], min [1], size [2], keep_alive [5m]
+DEBUG 2013-11-25 10:42:00,126 [main] - [test-node] creating thread_pool [optimize], type [fixed], size [1], queue_size [null]
+DEBUG 2013-11-25 10:42:00,131 [main] - [test-node] enabled [true], last_gc_enabled [false], interval [1s], gc_threshold [{default=GcThreshold{name='default', warnThreshold=10000, infoThreshold=5000, debugThreshold=2000}, ParNew=GcThreshold{name='ParNew', warnThreshold=1000, infoThreshold=700, debugThreshold=400}, ConcurrentMarkSweep=GcThreshold{name='ConcurrentMarkSweep', warnThreshold=10000, infoThreshold=5000, debugThreshold=2000}}]
+DEBUG 2013-11-25 10:42:00,132 [main] - [test-node] Using probe [org.elasticsearch.monitor.os.JmxOsProbe@76bbddbf] with refresh_interval [1s]
+DEBUG 2013-11-25 10:42:00,132 [main] - [test-node] Using probe [org.elasticsearch.monitor.process.JmxProcessProbe@5b7b9223] with refresh_interval [1s]
+DEBUG 2013-11-25 10:42:00,132 [main] - [test-node] Using refresh_interval [1s]
+DEBUG 2013-11-25 10:42:00,132 [main] - [test-node] Using probe [org.elasticsearch.monitor.network.JmxNetworkProbe@37d40164] with refresh_interval [5s]
+DEBUG 2013-11-25 10:42:00,346 [main] - [test-node] net_info
+host [Lenovo-PC]
+lo	display_name [Software Loopback Interface 1]
+		address [/0:0:0:0:0:0:0:1] [/127.0.0.1] 
+		mtu [-1] multicast [true] ptp [false] loopback [true] up [true] virtual [false]
+net0	display_name [WAN Miniport (SSTP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+net1	display_name [WAN Miniport (L2TP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+net2	display_name [WAN Miniport (PPTP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+ppp0	display_name [WAN Miniport (PPPOE)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth0	display_name [WAN Miniport (IPv6)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth1	display_name [WAN Miniport (Network Monitor)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth2	display_name [WAN Miniport (IP)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+ppp1	display_name [RAS Async Adapter]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth3	display_name [Realtek PCIe FE Family Controller]
+		address [/fe80:0:0:0:e5b0:c96a:2d9c:7188%10] [/10.1.10.180] 
+		mtu [1500] multicast [true] ptp [false] loopback [false] up [true] virtual [false]
+net3	display_name [Microsoft ISATAP Adapter]
+		address [/fe80:0:0:0:0:5efe:a01:ab4%11] 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [false] virtual [false]
+net4	display_name [Microsoft 6to4 Adapter]
+		address 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [false] virtual [false]
+net5	display_name [Microsoft ISATAP Adapter #2]
+		address 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [false] virtual [false]
+net6	display_name [Teredo Tunneling Pseudo-Interface]
+		address [/2001:0:9d38:6abd:55:2843:f5fe:f54b] [/fe80:0:0:0:55:2843:f5fe:f54b%14] 
+		mtu [1280] multicast [false] ptp [true] loopback [false] up [true] virtual [false]
+net7	display_name [WAN Miniport (IKEv2)]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth4	display_name [Iomega Virtual Ethernet Adapter]
+		address [/fe80:0:0:0:8e8:8e8e:5089:d63e%16] 
+		mtu [1500] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth5	display_name [Realtek PCIe FE Family Controller-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth6	display_name [Realtek PCIe FE Family Controller-WFP LightWeight Filter-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth7	display_name [WAN Miniport (Network Monitor)-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth8	display_name [WAN Miniport (IP)-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth9	display_name [WAN Miniport (IPv6)-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth10	display_name [Iomega Virtual Ethernet Adapter-QoS Packet Scheduler-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+eth11	display_name [Iomega Virtual Ethernet Adapter-WFP LightWeight Filter-0000]
+		address 
+		mtu [-1] multicast [true] ptp [false] loopback [false] up [false] virtual [false]
+
+DEBUG 2013-11-25 10:42:00,349 [main] - [test-node] Using probe [org.elasticsearch.monitor.fs.JmxFsProbe@6c4f7b4c] with refresh_interval [1s]
+DEBUG 2013-11-25 10:42:00,350 [main] - [test-node] using indices.store.throttle.type [MERGE], with index.store.throttle.max_bytes_per_sec [20mb]
+DEBUG 2013-11-25 10:42:00,350 [main] - [test-node] using bytebuffer cache with small_buffer_size [1kb], large_buffer_size [1mb], small_cache_size [10mb], large_cache_size [500mb], direct [true]
+DEBUG 2013-11-25 10:42:00,351 [main] - [test-node] using script cache with max_size [500], expire [null]
+DEBUG 2013-11-25 10:42:00,352 [main] - [test-node] using node_concurrent_recoveries [2], node_initial_primaries_recoveries [4]
+DEBUG 2013-11-25 10:42:00,352 [main] - [test-node] using [cluster.routing.allocation.allow_rebalance] with [indices_all_active]
+DEBUG 2013-11-25 10:42:00,352 [main] - [test-node] using [cluster_concurrent_rebalance] with [2]
+DEBUG 2013-11-25 10:42:00,353 [main] - [test-node] using initial_shards [quorum], list_timeout [30s]
+DEBUG 2013-11-25 10:42:00,360 [main] - [test-node] using max_bytes_per_sec[20mb], concurrent_streams [3], file_chunk_size [512kb], translog_size [512kb], translog_ops [1000], and compress [true]
+DEBUG 2013-11-25 10:42:00,368 [main] - [test-node] using index_buffer_size [176.3mb], with min_shard_index_buffer_size [4mb], max_shard_index_buffer_size [512mb], shard_inactive_time [30m]
+DEBUG 2013-11-25 10:42:00,368 [main] - [test-node] using [node] weighted filter cache with size [20%], actual_size [352.7mb], expire [null], clean_interval [1m]
+DEBUG 2013-11-25 10:42:00,368 [main] - [test-node] using size [-1] [-1b], expire [null]
+DEBUG 2013-11-25 10:42:00,370 [main] - [test-node] using gateway.local.auto_import_dangled [YES], with gateway.local.dangling_timeout [2h]
+DEBUG 2013-11-25 10:42:00,374 [main] - [test-node] took 4ms to load state
+DEBUG 2013-11-25 10:42:00,376 [main] - [test-node] took 2ms to load started shards state
+DEBUG 2013-11-25 10:42:00,378 [main] - [test-node] using enabled [false], host [null], port [9700-9800], bulk_actions [1000], bulk_size [5mb], flush_interval [5s], concurrent_requests [4]
+DEBUG 2013-11-25 10:42:00,380 [main] - [test-node] using node_concurrent_recoveries [2], node_initial_primaries_recoveries [4]
+DEBUG 2013-11-25 10:42:00,380 [main] - [test-node] using [cluster.routing.allocation.allow_rebalance] with [indices_all_active]
+DEBUG 2013-11-25 10:42:00,380 [main] - [test-node] using [cluster_concurrent_rebalance] with [2]
+DEBUG 2013-11-25 10:42:00,380 [main] - [test-node] using node_concurrent_recoveries [2], node_initial_primaries_recoveries [4]
+DEBUG 2013-11-25 10:42:00,381 [main] - [test-node] using [cluster.routing.allocation.allow_rebalance] with [indices_all_active]
+DEBUG 2013-11-25 10:42:00,381 [main] - [test-node] using [cluster_concurrent_rebalance] with [2]
+INFO  2013-11-25 10:42:00,385 [main] - [test-node] initialized
+INFO  2013-11-25 10:42:00,385 [main] - [test-node] starting ...
+INFO  2013-11-25 10:42:00,386 [main] - [test-node] bound_address {local[3]}, publish_address {local[3]}
+DEBUG 2013-11-25 10:42:00,386 [main] - [test-node] Connected to cluster [Cluster [elasticsearch]]
+DEBUG 2013-11-25 10:42:00,387 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-disco-initial_connect(master)]: execute
+DEBUG 2013-11-25 10:42:00,387 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [1], source [local-disco-initial_connect(master)]
+INFO  2013-11-25 10:42:00,387 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] new_master [test-node][3][local[3]]{local=true}, reason: local-disco-initial_connect(master)
+DEBUG 2013-11-25 10:42:00,387 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 1
+DEBUG 2013-11-25 10:42:00,388 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 1
+DEBUG 2013-11-25 10:42:00,388 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:42:00,388 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-disco-initial_connect(master)]: done applying updated cluster_state (version: 1)
+INFO  2013-11-25 10:42:00,388 [main] - [test-node] elasticsearch/3
+DEBUG 2013-11-25 10:42:00,388 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+INFO  2013-11-25 10:42:00,393 [main] - [test-node] started
+DEBUG 2013-11-25 10:42:00,393 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-gateway-elected-state]: execute
+DEBUG 2013-11-25 10:42:00,395 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0]: allocating [[testindex][0], node[null], [P], s[UNASSIGNED]] to [[test-node][3][local[3]]{local=true}] on primary allocation
+DEBUG 2013-11-25 10:42:00,395 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0]: allocating [[users][0], node[null], [P], s[UNASSIGNED]] to [[test-node][3][local[3]]{local=true}] on primary allocation
+DEBUG 2013-11-25 10:42:00,396 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0]: allocating [[vertices][0], node[null], [P], s[UNASSIGNED]] to [[test-node][3][local[3]]{local=true}] on primary allocation
+DEBUG 2013-11-25 10:42:00,397 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0]: allocating [[edges][0], node[null], [P], s[UNASSIGNED]] to [[test-node][3][local[3]]{local=true}] on primary allocation
+DEBUG 2013-11-25 10:42:00,398 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [2], source [local-gateway-elected-state]
+DEBUG 2013-11-25 10:42:00,398 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 2
+DEBUG 2013-11-25 10:42:00,399 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 2
+DEBUG 2013-11-25 10:42:00,399 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] creating index
+DEBUG 2013-11-25 10:42:00,399 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [users], shards [1]/[1]
+DEBUG 2013-11-25 10:42:00,438 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:42:00,438 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:42:00,439 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:42:00,440 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] creating index
+DEBUG 2013-11-25 10:42:00,440 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [testindex], shards [1]/[1]
+DEBUG 2013-11-25 10:42:00,471 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:42:00,471 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:42:00,472 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:42:00,473 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] creating index
+DEBUG 2013-11-25 10:42:00,473 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [edges], shards [1]/[1]
+DEBUG 2013-11-25 10:42:00,502 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:42:00,502 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:42:00,503 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:42:00,504 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] creating index
+DEBUG 2013-11-25 10:42:00,504 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] creating Index [vertices], shards [1]/[1]
+DEBUG 2013-11-25 10:42:00,536 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using dynamic[true], default mapping: default_mapping_location[null], loaded_from[jar:file:/C:/projects/keclipse/workspace/JSONBlobStore/lib/elasticsearch-0.90.7.jar!/org/elasticsearch/index/mapper/default-mapping.json]
+DEBUG 2013-11-25 10:42:00,537 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using [resident] query cache with max_size [100], expire [null]
+DEBUG 2013-11-25 10:42:00,543 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] using index.store.throttle.type [node], with index.store.throttle.max_bytes_per_sec [0b]
+DEBUG 2013-11-25 10:42:00,544 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:42:00,546 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index users, type core
+DEBUG 2013-11-25 10:42:00,546 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"nameString":{"type":"string"},"sourceTopic":{"type":"string"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"targetTopic":{"type":"string"},"tuples":{"type":"string"}}}}]
+DEBUG 2013-11-25 10:42:00,548 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index testindex, type core
+DEBUG 2013-11-25 10:42:00,549 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:42:00,550 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index edges, type core
+DEBUG 2013-11-25 10:42:00,550 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] adding mapping [core], source [{"core":{"properties":{"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:42:00,552 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] Sending mapping created for index vertices, type core
+DEBUG 2013-11-25 10:42:00,552 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] creating shard
+DEBUG 2013-11-25 10:42:00,552 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users] creating shard_id [0]
+DEBUG 2013-11-25 10:42:00,562 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:42:00,563 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:42:00,563 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:42:00,564 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] state: [CREATED]
+DEBUG 2013-11-25 10:42:00,564 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:42:00,565 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:42:00,565 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] creating shard
+DEBUG 2013-11-25 10:42:00,565 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] starting recovery from local ...
+DEBUG 2013-11-25 10:42:00,565 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex] creating shard_id [0]
+DEBUG 2013-11-25 10:42:00,567 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] starting engine
+DEBUG 2013-11-25 10:42:00,576 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery]
+DEBUG 2013-11-25 10:42:00,576 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:42:00,576 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:42:00,576 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:42:00,576 [elasticsearch[test-node][generic][T#2]] - [test-node] [users][0] recovery completed from [local], took [11ms]
+DEBUG 2013-11-25 10:42:00,577 [elasticsearch[test-node][generic][T#2]] - [test-node] sending shard started for [users][0], node[3], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:42:00,577 [elasticsearch[test-node][generic][T#2]] - [test-node] received shard started for [users][0], node[3], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:42:00,577 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:42:00,577 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:42:00,578 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] state: [CREATED]
+DEBUG 2013-11-25 10:42:00,578 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:42:00,579 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:42:00,579 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] creating shard
+DEBUG 2013-11-25 10:42:00,579 [elasticsearch[test-node][generic][T#2]] - [test-node] [testindex][0] starting recovery from local ...
+DEBUG 2013-11-25 10:42:00,579 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] creating shard_id [0]
+DEBUG 2013-11-25 10:42:00,582 [elasticsearch[test-node][generic][T#2]] - [test-node] [testindex][0] starting engine
+DEBUG 2013-11-25 10:42:00,590 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:42:00,591 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:42:00,591 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:42:00,591 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] state: [CREATED]
+DEBUG 2013-11-25 10:42:00,592 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:42:00,592 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:42:00,593 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] creating shard
+DEBUG 2013-11-25 10:42:00,593 [elasticsearch[test-node][generic][T#3]] - [test-node] [edges][0] starting recovery from local ...
+DEBUG 2013-11-25 10:42:00,593 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] creating shard_id [0]
+DEBUG 2013-11-25 10:42:00,596 [elasticsearch[test-node][generic][T#3]] - [test-node] [edges][0] starting engine
+DEBUG 2013-11-25 10:42:00,603 [elasticsearch[test-node][generic][T#2]] - [test-node] [testindex][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery]
+DEBUG 2013-11-25 10:42:00,603 [elasticsearch[test-node][generic][T#2]] - [test-node] [testindex][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:42:00,603 [elasticsearch[test-node][generic][T#2]] - [test-node] [testindex][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:42:00,604 [elasticsearch[test-node][generic][T#2]] - [test-node] [testindex][0] recovery completed from [local], took [25ms]
+DEBUG 2013-11-25 10:42:00,604 [elasticsearch[test-node][generic][T#2]] - [test-node] sending shard started for [testindex][0], node[3], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:42:00,604 [elasticsearch[test-node][generic][T#2]] - [test-node] received shard started for [testindex][0], node[3], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:42:00,605 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] Using [keep_only_last] deletion policy
+DEBUG 2013-11-25 10:42:00,606 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] using [tiered] merge policy with expunge_deletes_allowed[10.0], floor_segment[2mb], max_merge_at_once[10], max_merge_at_once_explicit[30], max_merged_segment[5gb], segments_per_tier[10.0], reclaim_deletes_weight[2.0], async_merge[true]
+DEBUG 2013-11-25 10:42:00,606 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] using [concurrent] merge scheduler with max_thread_count[2]
+DEBUG 2013-11-25 10:42:00,606 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] state: [CREATED]
+DEBUG 2013-11-25 10:42:00,607 [elasticsearch[test-node][generic][T#3]] - [test-node] [edges][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery]
+DEBUG 2013-11-25 10:42:00,607 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] interval [5s], flush_threshold_ops [5000], flush_threshold_size [200mb], flush_threshold_period [30m]
+DEBUG 2013-11-25 10:42:00,607 [elasticsearch[test-node][generic][T#3]] - [test-node] [edges][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:42:00,607 [elasticsearch[test-node][generic][T#3]] - [test-node] [edges][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:42:00,607 [elasticsearch[test-node][generic][T#3]] - [test-node] [edges][0] recovery completed from [local], took [14ms]
+DEBUG 2013-11-25 10:42:00,607 [elasticsearch[test-node][generic][T#3]] - [test-node] sending shard started for [edges][0], node[3], [P], s[INITIALIZING], indexUUID [lTWYCZo5SoWQRbEP0cHLEA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:42:00,607 [elasticsearch[test-node][generic][T#3]] - [test-node] received shard started for [edges][0], node[3], [P], s[INITIALIZING], indexUUID [lTWYCZo5SoWQRbEP0cHLEA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:42:00,607 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] state: [CREATED]->[RECOVERING], reason [from gateway]
+DEBUG 2013-11-25 10:42:00,607 [elasticsearch[test-node][generic][T#3]] - [test-node] [vertices][0] starting recovery from local ...
+DEBUG 2013-11-25 10:42:00,608 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:42:00,608 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:42:00,610 [elasticsearch[test-node][generic][T#3]] - [test-node] [vertices][0] starting engine
+DEBUG 2013-11-25 10:42:00,619 [elasticsearch[test-node][generic][T#3]] - [test-node] [vertices][0] state: [RECOVERING]->[POST_RECOVERY], reason [post recovery]
+DEBUG 2013-11-25 10:42:00,619 [elasticsearch[test-node][generic][T#3]] - [test-node] [vertices][0] scheduling refresher every 1s
+DEBUG 2013-11-25 10:42:00,619 [elasticsearch[test-node][generic][T#3]] - [test-node] [vertices][0] scheduling optimizer / merger every 1s
+DEBUG 2013-11-25 10:42:00,619 [elasticsearch[test-node][generic][T#3]] - [test-node] [vertices][0] recovery completed from [local], took [12ms]
+DEBUG 2013-11-25 10:42:00,619 [elasticsearch[test-node][generic][T#3]] - [test-node] sending shard started for [vertices][0], node[3], [P], s[INITIALIZING], indexUUID [z4Rad4fDTIaov1E5_pr6xA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:42:00,619 [elasticsearch[test-node][generic][T#3]] - [test-node] received shard started for [vertices][0], node[3], [P], s[INITIALIZING], indexUUID [z4Rad4fDTIaov1E5_pr6xA], reason [after recovery from gateway]
+INFO  2013-11-25 10:42:00,707 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] recovered [4] indices into cluster_state
+DEBUG 2013-11-25 10:42:00,707 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [local-gateway-elected-state]: done applying updated cluster_state (version: 2)
+DEBUG 2013-11-25 10:42:00,707 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([users][0], node[3], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:42:00,708 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] will apply shard started [users][0], node[3], [P], s[INITIALIZING], indexUUID [_sJxzvA4ThGp0xSPHFUAig], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:42:00,708 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] will apply shard started [testindex][0], node[3], [P], s[INITIALIZING], indexUUID [a_LirP35Tv-vJJaOlE9saQ], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:42:00,708 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] will apply shard started [edges][0], node[3], [P], s[INITIALIZING], indexUUID [lTWYCZo5SoWQRbEP0cHLEA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:42:00,708 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] will apply shard started [vertices][0], node[3], [P], s[INITIALIZING], indexUUID [z4Rad4fDTIaov1E5_pr6xA], reason [after recovery from gateway]
+DEBUG 2013-11-25 10:42:00,711 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [3], source [shard-started ([users][0], node[3], [P], s[INITIALIZING]), reason [after recovery from gateway]]
+DEBUG 2013-11-25 10:42:00,711 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 3
+DEBUG 2013-11-25 10:42:00,712 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 3
+DEBUG 2013-11-25 10:42:00,714 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [users][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:42:00,715 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [testindex][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:42:00,716 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:42:00,717 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices][0] state: [POST_RECOVERY]->[STARTED], reason [global state is [STARTED]]
+DEBUG 2013-11-25 10:42:00,718 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: execute
+DEBUG 2013-11-25 10:42:00,718 [elasticsearch[test-node][riverClusterService#updateTask][T#1]] - [test-node] processing [reroute_rivers_node_changed]: no change in cluster_state
+DEBUG 2013-11-25 10:42:00,795 [main] - ElasticSearchEmbeddedModel started org.elasticsearch.client.node.NodeClient@48ba0f44
+DEBUG 2013-11-25 10:42:00,800 [main] - JSONBlobStoreBlueprintsElement-1 null ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,800 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core null true
+DEBUG 2013-11-25 10:42:00,819 [main] - JSONBlobStoreBlueprintsElement-1 null fb264e47-d5cb-4952-82a1-01e20625d284
+DEBUG 2013-11-25 10:42:00,820 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core null true
+DEBUG 2013-11-25 10:42:00,823 [main] - JSONBlobStoreBlueprintsElement-1 null b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,823 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core null true
+DEBUG 2013-11-25 10:42:00,826 [main] - JSONBlobStoreBlueprintsElement-1 null 3094c1ab-c3f9-47c5-afa7-990e6ba8fb75
+DEBUG 2013-11-25 10:42:00,826 [main] - JSONBlobStoreBlueprintsEdge-
+DEBUG 2013-11-25 10:42:00,826 [main] - JSONBlobStoreBlueprintsEdge+ {"id":"3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","label":"friend","instanceOf":"EdgeType","InVertexId":"fb264e47-d5cb-4952-82a1-01e20625d284","OutVertexId":"ee495841-4afc-40af-89e0-f4b2ba16d357"}
+DEBUG 2013-11-25 10:42:00,826 [main] - JSONBlobStoreBlueprintsGraph.addEdge-1 3094c1ab-c3f9-47c5-afa7-990e6ba8fb75
+DEBUG 2013-11-25 10:42:00,826 [main] - JSONBlobStoreBlueprintsGraph.addEdge-2 
+DEBUG 2013-11-25 10:42:00,826 [main] - AbstractBaseElasticSearchModel.putDocument-2 edges core 3094c1ab-c3f9-47c5-afa7-990e6ba8fb75 true
+DEBUG 2013-11-25 10:42:00,834 [main] - JSONBlobStoreBlueprintsGraph.addEdge-3 
+DEBUG 2013-11-25 10:42:00,834 [main] - JSONBlobStoreBlueprintsVertex.getListEdgeList outEdgeIdList null
+DEBUG 2013-11-25 10:42:00,835 [main] - JSONBlobStoreBlueprintsVertex.addOutEdge-1 ["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75"]
+DEBUG 2013-11-25 10:42:00,835 [main] - JSONBlobStoreBlueprintsVertex.addOutEdge-2 
+DEBUG 2013-11-25 10:42:00,835 [main] - JSONBlobStoreBlueprintsGraph.examineVertex ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,835 [main] - KEY: id
+DEBUG 2013-11-25 10:42:00,835 [main] - VAL: ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,835 [main] - KEY: outEdgeIdList
+DEBUG 2013-11-25 10:42:00,836 [main] - VAL: 3094c1ab-c3f9-47c5-afa7-990e6ba8fb75
+DEBUG 2013-11-25 10:42:00,836 [main] - KEY: instanceOf
+DEBUG 2013-11-25 10:42:00,836 [main] - VAL: VERTEX_TYPE
+DEBUG 2013-11-25 10:42:00,836 [main] - JSONBlobStoreBlueprintsGraph.addEdge-4 
+DEBUG 2013-11-25 10:42:00,836 [main] - JSONBlobStoreBlueprintsGraph.addEdge-4.1 
+DEBUG 2013-11-25 10:42:00,836 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core ee495841-4afc-40af-89e0-f4b2ba16d357 true
+DEBUG 2013-11-25 10:42:00,839 [main] - JSONBlobStoreBlueprintsGraph.addEdge-5 
+DEBUG 2013-11-25 10:42:00,839 [main] - JSONBlobStoreBlueprintsVertex.getListEdgeList inEdgeIdList null
+DEBUG 2013-11-25 10:42:00,839 [main] - JSONBlobStoreBlueprintsGraph.addEdge-6 fb264e47-d5cb-4952-82a1-01e20625d284
+DEBUG 2013-11-25 10:42:00,839 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core fb264e47-d5cb-4952-82a1-01e20625d284 true
+DEBUG 2013-11-25 10:42:00,842 [main] - JSONBlobStoreBlueprintsElement-1 null f7601a64-7e9d-456c-accf-59179318246a
+DEBUG 2013-11-25 10:42:00,843 [main] - JSONBlobStoreBlueprintsEdge-
+DEBUG 2013-11-25 10:42:00,843 [main] - JSONBlobStoreBlueprintsEdge+ {"id":"f7601a64-7e9d-456c-accf-59179318246a","label":"friend","instanceOf":"EdgeType","InVertexId":"b7c219bb-2405-49ed-a587-09c371770221","OutVertexId":"ee495841-4afc-40af-89e0-f4b2ba16d357"}
+DEBUG 2013-11-25 10:42:00,843 [main] - JSONBlobStoreBlueprintsGraph.addEdge-1 f7601a64-7e9d-456c-accf-59179318246a
+DEBUG 2013-11-25 10:42:00,843 [main] - JSONBlobStoreBlueprintsGraph.addEdge-2 
+DEBUG 2013-11-25 10:42:00,843 [main] - AbstractBaseElasticSearchModel.putDocument-2 edges core f7601a64-7e9d-456c-accf-59179318246a true
+DEBUG 2013-11-25 10:42:00,847 [main] - JSONBlobStoreBlueprintsGraph.addEdge-3 
+DEBUG 2013-11-25 10:42:00,847 [main] - JSONBlobStoreBlueprintsVertex.getListEdgeList outEdgeIdList ["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75"]
+DEBUG 2013-11-25 10:42:00,847 [main] - JSONBlobStoreBlueprintsVertex.addOutEdge-1 ["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a"]
+DEBUG 2013-11-25 10:42:00,847 [main] - JSONBlobStoreBlueprintsVertex.addOutEdge-2 
+DEBUG 2013-11-25 10:42:00,847 [main] - JSONBlobStoreBlueprintsGraph.examineVertex ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,847 [main] - KEY: id
+DEBUG 2013-11-25 10:42:00,847 [main] - VAL: ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,847 [main] - KEY: outEdgeIdList
+DEBUG 2013-11-25 10:42:00,847 [main] - VAL: 3094c1ab-c3f9-47c5-afa7-990e6ba8fb75
+DEBUG 2013-11-25 10:42:00,847 [main] - VAL: f7601a64-7e9d-456c-accf-59179318246a
+DEBUG 2013-11-25 10:42:00,847 [main] - KEY: instanceOf
+DEBUG 2013-11-25 10:42:00,847 [main] - VAL: VERTEX_TYPE
+DEBUG 2013-11-25 10:42:00,847 [main] - JSONBlobStoreBlueprintsGraph.addEdge-4 
+DEBUG 2013-11-25 10:42:00,847 [main] - JSONBlobStoreBlueprintsGraph.addEdge-4.1 
+DEBUG 2013-11-25 10:42:00,847 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core ee495841-4afc-40af-89e0-f4b2ba16d357 true
+DEBUG 2013-11-25 10:42:00,851 [main] - JSONBlobStoreBlueprintsGraph.addEdge-5 
+DEBUG 2013-11-25 10:42:00,851 [main] - JSONBlobStoreBlueprintsVertex.getListEdgeList inEdgeIdList null
+DEBUG 2013-11-25 10:42:00,851 [main] - JSONBlobStoreBlueprintsGraph.addEdge-6 b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,851 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core b7c219bb-2405-49ed-a587-09c371770221 true
+DEBUG 2013-11-25 10:42:00,853 [main] - JSONBlobStoreBlueprintsElement-1 null 63c893dc-8ed2-43b5-9643-b8dc29acaa6b
+DEBUG 2013-11-25 10:42:00,853 [main] - JSONBlobStoreBlueprintsEdge-
+DEBUG 2013-11-25 10:42:00,854 [main] - JSONBlobStoreBlueprintsEdge+ {"id":"63c893dc-8ed2-43b5-9643-b8dc29acaa6b","label":"hate","instanceOf":"EdgeType","InVertexId":"b7c219bb-2405-49ed-a587-09c371770221","OutVertexId":"ee495841-4afc-40af-89e0-f4b2ba16d357"}
+DEBUG 2013-11-25 10:42:00,854 [main] - JSONBlobStoreBlueprintsGraph.addEdge-1 63c893dc-8ed2-43b5-9643-b8dc29acaa6b
+DEBUG 2013-11-25 10:42:00,854 [main] - JSONBlobStoreBlueprintsGraph.addEdge-2 
+DEBUG 2013-11-25 10:42:00,854 [main] - AbstractBaseElasticSearchModel.putDocument-2 edges core 63c893dc-8ed2-43b5-9643-b8dc29acaa6b true
+DEBUG 2013-11-25 10:42:00,857 [main] - JSONBlobStoreBlueprintsGraph.addEdge-3 
+DEBUG 2013-11-25 10:42:00,857 [main] - JSONBlobStoreBlueprintsVertex.getListEdgeList outEdgeIdList ["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a"]
+DEBUG 2013-11-25 10:42:00,857 [main] - JSONBlobStoreBlueprintsVertex.addOutEdge-1 ["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"]
+DEBUG 2013-11-25 10:42:00,857 [main] - JSONBlobStoreBlueprintsVertex.addOutEdge-2 
+DEBUG 2013-11-25 10:42:00,857 [main] - JSONBlobStoreBlueprintsGraph.examineVertex ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,857 [main] - KEY: id
+DEBUG 2013-11-25 10:42:00,857 [main] - VAL: ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,857 [main] - KEY: outEdgeIdList
+DEBUG 2013-11-25 10:42:00,857 [main] - VAL: 3094c1ab-c3f9-47c5-afa7-990e6ba8fb75
+DEBUG 2013-11-25 10:42:00,857 [main] - VAL: f7601a64-7e9d-456c-accf-59179318246a
+DEBUG 2013-11-25 10:42:00,857 [main] - VAL: 63c893dc-8ed2-43b5-9643-b8dc29acaa6b
+DEBUG 2013-11-25 10:42:00,857 [main] - KEY: instanceOf
+DEBUG 2013-11-25 10:42:00,857 [main] - VAL: VERTEX_TYPE
+DEBUG 2013-11-25 10:42:00,857 [main] - JSONBlobStoreBlueprintsGraph.addEdge-4 
+DEBUG 2013-11-25 10:42:00,857 [main] - JSONBlobStoreBlueprintsGraph.addEdge-4.1 
+DEBUG 2013-11-25 10:42:00,857 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core ee495841-4afc-40af-89e0-f4b2ba16d357 true
+DEBUG 2013-11-25 10:42:00,860 [main] - JSONBlobStoreBlueprintsGraph.addEdge-5 
+DEBUG 2013-11-25 10:42:00,860 [main] - JSONBlobStoreBlueprintsVertex.getListEdgeList inEdgeIdList ["f7601a64-7e9d-456c-accf-59179318246a"]
+DEBUG 2013-11-25 10:42:00,860 [main] - JSONBlobStoreBlueprintsGraph.addEdge-6 b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,860 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core b7c219bb-2405-49ed-a587-09c371770221 true
+DEBUG 2013-11-25 10:42:00,863 [main] - JSONBlobStoreBlueprintsElement-1 null 79a66d04-3d44-48ad-a689-900c7a3fd523
+DEBUG 2013-11-25 10:42:00,863 [main] - JSONBlobStoreBlueprintsEdge-
+DEBUG 2013-11-25 10:42:00,863 [main] - JSONBlobStoreBlueprintsEdge+ {"id":"79a66d04-3d44-48ad-a689-900c7a3fd523","label":"hate","instanceOf":"EdgeType","InVertexId":"ee495841-4afc-40af-89e0-f4b2ba16d357","OutVertexId":"b7c219bb-2405-49ed-a587-09c371770221"}
+DEBUG 2013-11-25 10:42:00,863 [main] - JSONBlobStoreBlueprintsGraph.addEdge-1 79a66d04-3d44-48ad-a689-900c7a3fd523
+DEBUG 2013-11-25 10:42:00,863 [main] - JSONBlobStoreBlueprintsGraph.addEdge-2 
+DEBUG 2013-11-25 10:42:00,863 [main] - AbstractBaseElasticSearchModel.putDocument-2 edges core 79a66d04-3d44-48ad-a689-900c7a3fd523 true
+DEBUG 2013-11-25 10:42:00,866 [main] - JSONBlobStoreBlueprintsGraph.addEdge-3 
+DEBUG 2013-11-25 10:42:00,866 [main] - JSONBlobStoreBlueprintsVertex.getListEdgeList outEdgeIdList null
+DEBUG 2013-11-25 10:42:00,866 [main] - JSONBlobStoreBlueprintsVertex.addOutEdge-1 ["79a66d04-3d44-48ad-a689-900c7a3fd523"]
+DEBUG 2013-11-25 10:42:00,867 [main] - JSONBlobStoreBlueprintsVertex.addOutEdge-2 
+DEBUG 2013-11-25 10:42:00,867 [main] - JSONBlobStoreBlueprintsGraph.examineVertex b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,867 [main] - KEY: id
+DEBUG 2013-11-25 10:42:00,867 [main] - VAL: b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,867 [main] - KEY: outEdgeIdList
+DEBUG 2013-11-25 10:42:00,867 [main] - VAL: 79a66d04-3d44-48ad-a689-900c7a3fd523
+DEBUG 2013-11-25 10:42:00,867 [main] - KEY: inEdgeIdList
+DEBUG 2013-11-25 10:42:00,867 [main] - VAL: f7601a64-7e9d-456c-accf-59179318246a
+DEBUG 2013-11-25 10:42:00,867 [main] - VAL: 63c893dc-8ed2-43b5-9643-b8dc29acaa6b
+DEBUG 2013-11-25 10:42:00,867 [main] - KEY: instanceOf
+DEBUG 2013-11-25 10:42:00,867 [main] - VAL: VERTEX_TYPE
+DEBUG 2013-11-25 10:42:00,867 [main] - JSONBlobStoreBlueprintsGraph.addEdge-4 
+DEBUG 2013-11-25 10:42:00,867 [main] - JSONBlobStoreBlueprintsGraph.addEdge-4.1 
+DEBUG 2013-11-25 10:42:00,867 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core b7c219bb-2405-49ed-a587-09c371770221 true
+DEBUG 2013-11-25 10:42:00,870 [main] - JSONBlobStoreBlueprintsGraph.addEdge-5 
+DEBUG 2013-11-25 10:42:00,870 [main] - JSONBlobStoreBlueprintsVertex.getListEdgeList inEdgeIdList null
+DEBUG 2013-11-25 10:42:00,870 [main] - JSONBlobStoreBlueprintsGraph.addEdge-6 ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,870 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core ee495841-4afc-40af-89e0-f4b2ba16d357 true
+DEBUG 2013-11-25 10:42:00,873 [main] - JSONBlobStoreBlueprintsElement-1 null 983b6f5e-305d-4e67-a17c-5b02faa955aa
+DEBUG 2013-11-25 10:42:00,873 [main] - JSONBlobStoreBlueprintsEdge-
+DEBUG 2013-11-25 10:42:00,873 [main] - JSONBlobStoreBlueprintsEdge+ {"id":"983b6f5e-305d-4e67-a17c-5b02faa955aa","label":"hate","instanceOf":"EdgeType","InVertexId":"fb264e47-d5cb-4952-82a1-01e20625d284","OutVertexId":"b7c219bb-2405-49ed-a587-09c371770221"}
+DEBUG 2013-11-25 10:42:00,873 [main] - JSONBlobStoreBlueprintsGraph.addEdge-1 983b6f5e-305d-4e67-a17c-5b02faa955aa
+DEBUG 2013-11-25 10:42:00,873 [main] - JSONBlobStoreBlueprintsGraph.addEdge-2 
+DEBUG 2013-11-25 10:42:00,873 [main] - AbstractBaseElasticSearchModel.putDocument-2 edges core 983b6f5e-305d-4e67-a17c-5b02faa955aa true
+DEBUG 2013-11-25 10:42:00,875 [main] - JSONBlobStoreBlueprintsGraph.addEdge-3 
+DEBUG 2013-11-25 10:42:00,875 [main] - JSONBlobStoreBlueprintsVertex.getListEdgeList outEdgeIdList ["79a66d04-3d44-48ad-a689-900c7a3fd523"]
+DEBUG 2013-11-25 10:42:00,875 [main] - JSONBlobStoreBlueprintsVertex.addOutEdge-1 ["79a66d04-3d44-48ad-a689-900c7a3fd523","983b6f5e-305d-4e67-a17c-5b02faa955aa"]
+DEBUG 2013-11-25 10:42:00,876 [main] - JSONBlobStoreBlueprintsVertex.addOutEdge-2 
+DEBUG 2013-11-25 10:42:00,876 [main] - JSONBlobStoreBlueprintsGraph.examineVertex b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,876 [main] - KEY: id
+DEBUG 2013-11-25 10:42:00,876 [main] - VAL: b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,876 [main] - KEY: outEdgeIdList
+DEBUG 2013-11-25 10:42:00,876 [main] - VAL: 79a66d04-3d44-48ad-a689-900c7a3fd523
+DEBUG 2013-11-25 10:42:00,876 [main] - VAL: 983b6f5e-305d-4e67-a17c-5b02faa955aa
+DEBUG 2013-11-25 10:42:00,876 [main] - KEY: inEdgeIdList
+DEBUG 2013-11-25 10:42:00,876 [main] - VAL: f7601a64-7e9d-456c-accf-59179318246a
+DEBUG 2013-11-25 10:42:00,876 [main] - VAL: 63c893dc-8ed2-43b5-9643-b8dc29acaa6b
+DEBUG 2013-11-25 10:42:00,876 [main] - KEY: instanceOf
+DEBUG 2013-11-25 10:42:00,876 [main] - VAL: VERTEX_TYPE
+DEBUG 2013-11-25 10:42:00,876 [main] - JSONBlobStoreBlueprintsGraph.addEdge-4 
+DEBUG 2013-11-25 10:42:00,876 [main] - JSONBlobStoreBlueprintsGraph.addEdge-4.1 
+DEBUG 2013-11-25 10:42:00,876 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core b7c219bb-2405-49ed-a587-09c371770221 true
+DEBUG 2013-11-25 10:42:00,879 [main] - JSONBlobStoreBlueprintsGraph.addEdge-5 
+DEBUG 2013-11-25 10:42:00,879 [main] - JSONBlobStoreBlueprintsVertex.getListEdgeList inEdgeIdList ["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75"]
+DEBUG 2013-11-25 10:42:00,879 [main] - JSONBlobStoreBlueprintsGraph.addEdge-6 fb264e47-d5cb-4952-82a1-01e20625d284
+DEBUG 2013-11-25 10:42:00,879 [main] - AbstractBaseElasticSearchModel.putDocument-2 vertices core fb264e47-d5cb-4952-82a1-01e20625d284 true
+DEBUG 2013-11-25 10:42:00,887 [main] - AbstractBaseElasticSearchModel.getDocument- edges core 3094c1ab-c3f9-47c5-afa7-990e6ba8fb75
+DEBUG 2013-11-25 10:42:00,889 [main] - JSONBlobStoreBlueprintsElement-2 3094c1ab-c3f9-47c5-afa7-990e6ba8fb75
+DEBUG 2013-11-25 10:42:00,889 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core fb264e47-d5cb-4952-82a1-01e20625d284
+DEBUG 2013-11-25 10:42:00,890 [main] - GraphUtil.jsonToVertes- {"id":"fb264e47-d5cb-4952-82a1-01e20625d284","inEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,890 [main] - JSONBlobStoreBlueprintsElement-2 fb264e47-d5cb-4952-82a1-01e20625d284
+DEBUG 2013-11-25 10:42:00,891 [main] - GraphUtil.jsonToVertes+ {"id":"fb264e47-d5cb-4952-82a1-01e20625d284","inEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,891 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,891 [main] - GraphUtil.jsonToVertes- {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,892 [main] - JSONBlobStoreBlueprintsElement-2 ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,892 [main] - GraphUtil.jsonToVertes+ {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,892 [main] - AbstractBaseElasticSearchModel.getDocument- edges core f7601a64-7e9d-456c-accf-59179318246a
+DEBUG 2013-11-25 10:42:00,893 [main] - JSONBlobStoreBlueprintsElement-2 f7601a64-7e9d-456c-accf-59179318246a
+DEBUG 2013-11-25 10:42:00,893 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,894 [main] - GraphUtil.jsonToVertes- {"id":"b7c219bb-2405-49ed-a587-09c371770221","outEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"inEdgeIdList":["f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,894 [main] - JSONBlobStoreBlueprintsElement-2 b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,894 [main] - GraphUtil.jsonToVertes+ {"id":"b7c219bb-2405-49ed-a587-09c371770221","outEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"inEdgeIdList":["f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,894 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,895 [main] - GraphUtil.jsonToVertes- {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,895 [main] - JSONBlobStoreBlueprintsElement-2 ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,895 [main] - GraphUtil.jsonToVertes+ {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,895 [main] - AbstractBaseElasticSearchModel.getDocument- edges core 63c893dc-8ed2-43b5-9643-b8dc29acaa6b
+DEBUG 2013-11-25 10:42:00,896 [main] - JSONBlobStoreBlueprintsElement-2 63c893dc-8ed2-43b5-9643-b8dc29acaa6b
+DEBUG 2013-11-25 10:42:00,896 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,897 [main] - GraphUtil.jsonToVertes- {"id":"b7c219bb-2405-49ed-a587-09c371770221","outEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"inEdgeIdList":["f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,897 [main] - JSONBlobStoreBlueprintsElement-2 b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,898 [main] - GraphUtil.jsonToVertes+ {"id":"b7c219bb-2405-49ed-a587-09c371770221","outEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"inEdgeIdList":["f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,898 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,898 [main] - GraphUtil.jsonToVertes- {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,899 [main] - JSONBlobStoreBlueprintsElement-2 ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,899 [main] - GraphUtil.jsonToVertes+ {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,901 [main] - AbstractBaseElasticSearchModel.getDocument- edges core 3094c1ab-c3f9-47c5-afa7-990e6ba8fb75
+DEBUG 2013-11-25 10:42:00,902 [main] - JSONBlobStoreBlueprintsElement-2 3094c1ab-c3f9-47c5-afa7-990e6ba8fb75
+DEBUG 2013-11-25 10:42:00,902 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core fb264e47-d5cb-4952-82a1-01e20625d284
+DEBUG 2013-11-25 10:42:00,902 [main] - GraphUtil.jsonToVertes- {"id":"fb264e47-d5cb-4952-82a1-01e20625d284","inEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,903 [main] - JSONBlobStoreBlueprintsElement-2 fb264e47-d5cb-4952-82a1-01e20625d284
+DEBUG 2013-11-25 10:42:00,903 [main] - GraphUtil.jsonToVertes+ {"id":"fb264e47-d5cb-4952-82a1-01e20625d284","inEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,903 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,903 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([users][0], node[3], [P], s[INITIALIZING]), reason [after recovery from gateway]]: done applying updated cluster_state (version: 3)
+DEBUG 2013-11-25 10:42:00,903 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([testindex][0], node[3], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:42:00,903 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([testindex][0], node[3], [P], s[INITIALIZING]), reason [after recovery from gateway]]: no change in cluster_state
+DEBUG 2013-11-25 10:42:00,903 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([edges][0], node[3], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:42:00,903 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([edges][0], node[3], [P], s[INITIALIZING]), reason [after recovery from gateway]]: no change in cluster_state
+DEBUG 2013-11-25 10:42:00,903 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([vertices][0], node[3], [P], s[INITIALIZING]), reason [after recovery from gateway]]: execute
+DEBUG 2013-11-25 10:42:00,903 [main] - GraphUtil.jsonToVertes- {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,903 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [shard-started ([vertices][0], node[3], [P], s[INITIALIZING]), reason [after recovery from gateway]]: no change in cluster_state
+DEBUG 2013-11-25 10:42:00,904 [main] - JSONBlobStoreBlueprintsElement-2 ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,904 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [vertices][core]]: execute
+DEBUG 2013-11-25 10:42:00,904 [main] - GraphUtil.jsonToVertes+ {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,904 [main] - AbstractBaseElasticSearchModel.getDocument- edges core f7601a64-7e9d-456c-accf-59179318246a
+DEBUG 2013-11-25 10:42:00,904 [main] - JSONBlobStoreBlueprintsElement-2 f7601a64-7e9d-456c-accf-59179318246a
+DEBUG 2013-11-25 10:42:00,905 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,905 [main] - GraphUtil.jsonToVertes- {"id":"b7c219bb-2405-49ed-a587-09c371770221","outEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"inEdgeIdList":["f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,905 [main] - JSONBlobStoreBlueprintsElement-2 b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,906 [main] - GraphUtil.jsonToVertes+ {"id":"b7c219bb-2405-49ed-a587-09c371770221","outEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"inEdgeIdList":["f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,906 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,906 [main] - GraphUtil.jsonToVertes- {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,906 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [edges] update_mapping [core] (dynamic) with source [{"core":{"properties":{"InVertexId":{"type":"string"},"OutVertexId":{"type":"string"},"id":{"type":"string"},"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"label":{"type":"string"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:42:00,906 [main] - JSONBlobStoreBlueprintsElement-2 ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,907 [main] - GraphUtil.jsonToVertes+ {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,907 [main] - AbstractBaseElasticSearchModel.getDocument- edges core 63c893dc-8ed2-43b5-9643-b8dc29acaa6b
+DEBUG 2013-11-25 10:42:00,908 [main] - JSONBlobStoreBlueprintsElement-2 63c893dc-8ed2-43b5-9643-b8dc29acaa6b
+DEBUG 2013-11-25 10:42:00,908 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,908 [main] - GraphUtil.jsonToVertes- {"id":"b7c219bb-2405-49ed-a587-09c371770221","outEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"inEdgeIdList":["f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,908 [main] - JSONBlobStoreBlueprintsElement-2 b7c219bb-2405-49ed-a587-09c371770221
+DEBUG 2013-11-25 10:42:00,908 [main] - GraphUtil.jsonToVertes+ {"id":"b7c219bb-2405-49ed-a587-09c371770221","outEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523","983b6f5e-305d-4e67-a17c-5b02faa955aa"],"inEdgeIdList":["f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,908 [main] - AbstractBaseElasticSearchModel.getDocument- vertices core ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,909 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] update_mapping [core] (dynamic) with source [{"core":{"properties":{"id":{"type":"string"},"inEdgeIdList":{"type":"string"},"instanceOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"locator":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"},"outEdgeIdList":{"type":"string"},"subOf":{"type":"string","index":"not_analyzed","store":true,"omit_norms":true,"index_options":"docs"}}}}]
+DEBUG 2013-11-25 10:42:00,909 [main] - GraphUtil.jsonToVertes- {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+DEBUG 2013-11-25 10:42:00,909 [main] - JSONBlobStoreBlueprintsElement-2 ee495841-4afc-40af-89e0-f4b2ba16d357
+DEBUG 2013-11-25 10:42:00,910 [main] - GraphUtil.jsonToVertes+ {"id":"ee495841-4afc-40af-89e0-f4b2ba16d357","outEdgeIdList":["3094c1ab-c3f9-47c5-afa7-990e6ba8fb75","f7601a64-7e9d-456c-accf-59179318246a","63c893dc-8ed2-43b5-9643-b8dc29acaa6b"],"inEdgeIdList":["79a66d04-3d44-48ad-a689-900c7a3fd523"],"instanceOf":"VERTEX_TYPE"}
+INFO  2013-11-25 10:42:00,910 [main] - [test-node] stopping ...
+DEBUG 2013-11-25 10:42:00,912 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] update_mapping [core] ignoring mapping update task as it results in the same source as what we have
+DEBUG 2013-11-25 10:42:00,912 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] [vertices] update_mapping [core] ignoring mapping update task as it's source is equal to ours
+DEBUG 2013-11-25 10:42:00,912 [shards_shutdown[T#1]] - [test-node] [users][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:42:00,912 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] cluster state updated, version [4], source [update-mapping [vertices][core]]
+DEBUG 2013-11-25 10:42:00,913 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] publishing cluster state version 4
+DEBUG 2013-11-25 10:42:00,913 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] set local cluster state to version 4
+DEBUG 2013-11-25 10:42:00,915 [indices_shutdown[T#1]] - [test-node] [users] full cache clear, reason [close]
+DEBUG 2013-11-25 10:42:00,917 [shards_shutdown[T#2]] - [test-node] [vertices][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:42:00,999 [indices_shutdown[T#4]] - [test-node] [vertices] full cache clear, reason [close]
+DEBUG 2013-11-25 10:42:00,999 [shards_shutdown[T#3]] - [test-node] [testindex][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:42:01,003 [indices_shutdown[T#2]] - [test-node] [testindex] full cache clear, reason [close]
+DEBUG 2013-11-25 10:42:01,004 [shards_shutdown[T#4]] - [test-node] [edges][0] state: [STARTED]->[CLOSED], reason [shutdown]
+DEBUG 2013-11-25 10:42:01,054 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [vertices][core]]: done applying updated cluster_state (version: 4)
+DEBUG 2013-11-25 10:42:01,054 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [edges][core]]: execute
+DEBUG 2013-11-25 10:42:01,054 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [edges][core]]: no change in cluster_state
+DEBUG 2013-11-25 10:42:01,054 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [vertices][core]]: execute
+DEBUG 2013-11-25 10:42:01,054 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [vertices][core]]: no change in cluster_state
+DEBUG 2013-11-25 10:42:01,054 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [vertices][core]]: execute
+DEBUG 2013-11-25 10:42:01,054 [elasticsearch[test-node][clusterService#updateTask][T#1]] - [test-node] processing [update-mapping [vertices][core]]: no change in cluster_state
+DEBUG 2013-11-25 10:42:01,077 [indices_shutdown[T#3]] - [test-node] [edges] full cache clear, reason [close]
+INFO  2013-11-25 10:42:01,081 [main] - [test-node] stopped
+INFO  2013-11-25 10:42:01,081 [main] - [test-node] closing ...
+INFO  2013-11-25 10:42:01,090 [main] - [test-node] closed
