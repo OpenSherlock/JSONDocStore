@@ -13,6 +13,7 @@ For many of the SolrSherlock projects, particularly in text harvesting, there is
 Thus, this project includes experimental implementations. It runs all its dev tests except the blueprints vertex test, where it is presently not responding properly. It does build graphs with vertices and edges, and returns them.
 
 ## Update History ##
+20131126 changed code to improve boot reliability of Embedded system. Version 0.1.1
 20131126 First GitHub commit
 
 ## ToDo ##

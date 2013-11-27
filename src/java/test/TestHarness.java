@@ -29,7 +29,7 @@ public class TestHarness {
 		//new TreeTest();
 		//new ExtraKBTest();
 		//new FirstGraphTest();
-		new GraphTestSuite();
+		//new GraphTestSuite();
 		System.out.println("Did");
 	}
 

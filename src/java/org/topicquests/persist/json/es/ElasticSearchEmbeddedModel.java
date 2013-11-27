@@ -5,6 +5,7 @@ package org.topicquests.persist.json.es;
 
 import java.util.*;
 
+import org.elasticsearch.action.admin.cluster.health.ClusterHealthStatus;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequestBuilder;
@@ -66,11 +67,27 @@ public class ElasticSearchEmbeddedModel extends AbstractBaseElasticSearchModel
 		System.out.println("AAA-1");
 		// We wait now for the yellow (or green) status
         node.client().admin().cluster().prepareHealth()
-                        .setWaitForYellowStatus().execute().actionGet();
-		System.out.println("AAA-2");
+        		.setWaitForGreenStatus().execute().actionGet();
+                // .setWaitForYellowStatus().execute().actionGet();
+	    ClusterHealthStatus s = node.client().admin().cluster().prepareHealth().get().getStatus();
+	    String color = "RED";
+	    if (s.value() == (byte)0)
+	    	color = "GREEN";
+	    else if (s.value() == (byte)1)
+	    	color = "YELLOW";
+		environment.logDebug("ElasticSearchEmbeddedModel starting "+color);
 		checkIndexes(result);
-		//client.admin().indices().
-		environment.logDebug("ElasticSearchEmbeddedModel started "+client);
+		node.client().admin().cluster().prepareHealth()
+			.setWaitForGreenStatus().execute().actionGet(50000);
+	    s = node.client().admin().cluster().prepareHealth().get().getStatus();
+	    color = "RED";
+	    if (s.value() == (byte)0)
+	    	color = "GREEN";
+	    else if (s.value() == (byte)1)
+	    	color = "YELLOW";
+		environment.logDebug("ElasticSearchEmbeddedModel started "+color);
+		if (s.value() == (byte)2)
+			throw new RuntimeException("ElasticSearchEmbeddedModel RED");
 		return result;
 	}
 	
@@ -95,16 +112,18 @@ public class ElasticSearchEmbeddedModel extends AbstractBaseElasticSearchModel
 			ib = getClient().admin().indices().prepareExists(idx);
 			ir = ib.get("1000");
 			System.out.println("BAR "+idx+" "+ir.isExists());
+			String mapx;
 			if (!ir.isExists()) {
 				try {
 					settings = ImmutableSettings.settingsBuilder();
 					 settings.put("path.data", "data/");
 					 settings.build();
-					 cir = new CreateIndexRequest(idx)
-					 .mapping(IJSONDocStoreOntology.CORE_TYPE, createMapping(idx))
+					 mapx = createMapping(idx);
+								 cir = new CreateIndexRequest(idx)
+						 .mapping(IJSONDocStoreOntology.CORE_TYPE, mapx)
 						.settings(settings);
 					 afr = getClient().admin().indices().create(cir).get();
-					System.out.println("FOO "+afr.isAcknowledged());
+					 environment.logDebug("ElasticSearchEmbeddedModel-1 "+afr.isAcknowledged()+" "+mapx);
 				} catch (Exception x) {
 					environment.logError(x.getMessage(), x);
 					throw new RuntimeException(x);
