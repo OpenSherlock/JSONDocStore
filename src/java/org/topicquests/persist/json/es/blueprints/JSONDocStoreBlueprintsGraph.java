@@ -14,6 +14,7 @@ import org.topicquests.persist.json.JSONDocStoreEnvironment;
 import org.topicquests.persist.json.api.IJSONDocStoreModel;
 import org.topicquests.persist.json.api.IJSONDocStoreOntology;
 import org.topicquests.persist.json.es.blueprints.api.IBlueprintsGraphOntology;
+import org.topicquests.persist.json.es.blueprints.api.IJSONGraph;
 
 import com.tinkerpop.blueprints.Edge;
 import com.tinkerpop.blueprints.Features;
@@ -26,7 +27,7 @@ import com.tinkerpop.blueprints.Vertex;
  * @see com.tinkerpop.blueprints.impl.tg.TinkerGraph
  * from which some of the code ideas are taken
  */
-public class JSONDocStoreBlueprintsGraph implements Graph {
+public  class JSONDocStoreBlueprintsGraph implements IJSONGraph {
 	public static final String
 		EDGE_TYPE = "EdgeType",
 		VERTEX_TYPE = "VERTEX_TYPE";
@@ -111,6 +112,18 @@ public class JSONDocStoreBlueprintsGraph implements Graph {
 		IResult r = jsonModel.putDocument((String)id, VERTEX_INDEX, CORE_TYPE, result);
 		return result;
 	}
+	@Override
+	public Vertex addVertex(String id, Map<String, Object> properties) {
+		JSONDocStoreBlueprintsVertex result = new JSONDocStoreBlueprintsVertex((String)id,this);
+		Iterator<String>itr = properties.keySet().iterator();
+		String key;
+		while (itr.hasNext()) {
+			key = itr.next();
+			result.setProperty(key, properties.get(key));
+		}
+		IResult r = jsonModel.putDocument((String)id, VERTEX_INDEX, CORE_TYPE, result);
+		return result;
+	}
 
 	/* (non-Javadoc)
 	 * @see com.tinkerpop.blueprints.Graph#getVertex(java.lang.Object)
@@ -167,25 +180,48 @@ public class JSONDocStoreBlueprintsGraph implements Graph {
 	public Edge addEdge(Object id, Vertex outVertex, Vertex inVertex,
 			String label) {
 		JSONDocStoreBlueprintsEdge result = new JSONDocStoreBlueprintsEdge((String)id,outVertex, inVertex, label, this);
-		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-1 "+result.getId());
-		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-2 ");
+//		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-1 "+result.getId());
+//		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-2 ");
 		String idx = (String)result.getId();
 		IResult r = jsonModel.putDocument(idx, EDGE_INDEX, CORE_TYPE, result);
 		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-3 "+r.getErrorString());
 		JSONDocStoreBlueprintsVertex v = (JSONDocStoreBlueprintsVertex)outVertex;
 		v.addOutEdge(result);
 		examineVertex(v);
-		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-4 ");
-		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-4.1 ");
+//		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-4 ");
+//		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-4.1 ");
 		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v);
-		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-5 "+r.getErrorString());
+//		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-5 "+r.getErrorString());
 		v = (JSONDocStoreBlueprintsVertex)inVertex;
 		v.addInEdge(result);
-		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-6 "+v.getId());
+//		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-6 "+v.getId());
 		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v);
 		return result;
 	}
 	
+	@Override
+	public Edge addEdge(String id, Vertex outVertex, Vertex inVertex,
+			String label, Map<String, Object> properties) {
+		JSONDocStoreBlueprintsEdge result = new JSONDocStoreBlueprintsEdge((String)id,outVertex, inVertex, label, this);
+		Iterator<String>itr = properties.keySet().iterator();
+		String key;
+		while (itr.hasNext()) {
+			key = itr.next();
+			result.setProperty(key, properties.get(key));
+		}
+		String idx = (String)result.getId();
+		IResult r = jsonModel.putDocument(idx, EDGE_INDEX, CORE_TYPE, result);
+		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-3 "+r.getErrorString());
+		JSONDocStoreBlueprintsVertex v = (JSONDocStoreBlueprintsVertex)outVertex;
+		v.addOutEdge(result);
+		examineVertex(v);
+		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v);
+		v = (JSONDocStoreBlueprintsVertex)inVertex;
+		v.addInEdge(result);
+		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v);
+		return result;
+	}
+
 	void examineVertex(JSONObject v) {
 		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.examineVertex "+v.get("id"));
 		Iterator<String>itr = v.keySet().iterator();
@@ -278,6 +314,18 @@ public class JSONDocStoreBlueprintsGraph implements Graph {
 	public void shutdown() {
 
 	}
+
+	@Override
+	public IResult updateVertex(Vertex v) {
+		return jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, ((JSONDocStoreBlueprintsVertex)v).toJSONString());
+	}
+
+	@Override
+	public IResult updateEdge(Edge e) {
+		return jsonModel.putDocument((String)e.getId(), VERTEX_INDEX, CORE_TYPE, ((JSONDocStoreBlueprintsEdge)e).toJSONString());
+	}
+
+
 
 
 

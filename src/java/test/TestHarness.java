@@ -23,13 +23,13 @@ public class TestHarness {
 		//new FirstBigQueryTest();
 		//new SecondBigQueryTest();
 		//new FirstCountTest();
-		new BuildComplexKnowledgeBase();
-		new FirstKBTest();
+		//new BuildComplexKnowledgeBase();
+		//new FirstKBTest();
 		//new DumpKBTest();
 		//new TreeTest();
 		//new ExtraKBTest();
 		//new FirstGraphTest();
-		//new GraphTestSuite();
+		new GraphTestSuite();
 		System.out.println("Did");
 	}
 

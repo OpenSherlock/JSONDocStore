@@ -7,6 +7,7 @@ import java.util.*;
 
 import org.topicquests.persist.json.JSONDocStoreEnvironment;
 import org.topicquests.persist.json.api.IJSONDocStoreModel;
+import org.topicquests.persist.json.es.blueprints.api.IJSONGraph;
 
 import com.tinkerpop.blueprints.Graph;
 
@@ -19,7 +20,7 @@ public class JSONDocStoreBlueprintsGraphEnvironment {
 	private Map<String,Object>props;
 	/** customizable model */
 	private IJSONDocStoreModel model;
-	private Graph theGraph;
+	private IJSONGraph theGraph;
 	/**
 	 * 
 	 */
@@ -29,7 +30,7 @@ public class JSONDocStoreBlueprintsGraphEnvironment {
 		theGraph = new JSONDocStoreBlueprintsGraph(this);
 	}
 
-	public Graph getGraph() {
+	public IJSONGraph getGraph() {
 		return theGraph;
 	}
 	

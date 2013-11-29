@@ -3,11 +3,11 @@
  */
 package test;
 
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 
 import org.topicquests.persist.json.JSONDocStoreEnvironment;
 import org.topicquests.persist.json.es.blueprints.JSONDocStoreBlueprintsGraphEnvironment;
+import org.topicquests.persist.json.es.blueprints.api.IJSONGraph;
 
 import com.tinkerpop.blueprints.Edge;
 import com.tinkerpop.blueprints.Graph;
@@ -20,7 +20,7 @@ import com.tinkerpop.blueprints.Vertex;
 public class GraphTestSuite {
 	private JSONDocStoreEnvironment environment;
 	private JSONDocStoreBlueprintsGraphEnvironment graphEnvironment;
-	private Graph graph;
+	private IJSONGraph graph;
     Vertex a;
     Vertex b;
     Vertex c;
@@ -41,17 +41,23 @@ public class GraphTestSuite {
 	       a = graph.addVertex(null);
 	        b = graph.addVertex(null);
 	        c = graph.addVertex(null);
-	        aFriendB = graph.addEdge(null, a, b, "friend");
-	        aFriendC = graph.addEdge(null, a, c, "friend");
-	        aHateC = graph.addEdge(null, a, c, "hate");
-	        cHateA = graph.addEdge(null, c, a, "hate");
-	        cHateB = graph.addEdge(null, c, b, "hate");
-	        aFriendB.setProperty("amount", 1.0);
-	        aFriendB.setProperty("date", 10);
-	        aFriendC.setProperty("amount", 0.5);
-	        aHateC.setProperty("amount", 1.0);
-	        cHateA.setProperty("amount", 1.0);
-	        cHateB.setProperty("amount", 0.4);
+	        Map<String,Object> m = new HashMap<String,Object>();
+	        m.put("amount", 1.0);
+	        m.put("date", 10);
+	        aFriendB = graph.addEdge(null, a, b, "friend",m);
+	        m.clear();
+	        m.put("amount", 0.5);
+	        aFriendC = graph.addEdge(null, a, c, "friend",m);
+	        m.clear();
+	        m.put("amount", 1.0);
+	        aHateC = graph.addEdge(null, a, c, "hate",m);
+	        m.clear();
+	        m.put("amount", 1.0);
+	        
+	        cHateA = graph.addEdge(null, c, a, "hate",m);
+	        m.clear();
+	        m.put("amount", 0.4);
+	        cHateB = graph.addEdge(null, c, b, "hate",m);
 			System.out.println("GraphTestSuite-1 "+a.toString());
 			System.out.println("GraphTestSuite-1.1 "+aFriendB.toString());
 			System.out.println("GraphTestSuite-1.2 "+aFriendC.toString());
