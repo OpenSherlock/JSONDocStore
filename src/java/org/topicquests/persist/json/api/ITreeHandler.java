@@ -39,6 +39,7 @@ public interface ITreeHandler extends IQueryEngine {
 	 * <li>This is used by <code>writeTypologyTree</code></li>
 	 * </p>
 	 * @param rootNodeIdentifier
+	 * @param identityKey 
 	 * @param childProperties
 	 * @param includeRoot dumps <code>rootNodeIdentifier</code>if <code>true</code>
 	 * @param out
@@ -46,7 +47,7 @@ public interface ITreeHandler extends IQueryEngine {
 	 * @param type
 	 * @return
 	 */
-	IResult writeTree(String rootNodeIdentifier, List<String> childProperties, boolean includeRoot, Writer out, String index, String type);
+	IResult writeTree(String rootNodeIdentifier, String identityKey, List<String> childProperties, boolean includeRoot, Writer out, String index, String type);
 	
 	/**
 	 * <p>A <em>typology</em> is defined as all the child nodes of
@@ -56,13 +57,14 @@ public interface ITreeHandler extends IQueryEngine {
 	 * ']' at the end.</p>
 	 * <p>Caller must flush and close <code>out</code></p>
 	 * @param treeRootNodeIdentifier
+	 * @param identityKey TODO
 	 * @param childProperties
 	 * @param out
 	 * @param index
 	 * @param type TODO
 	 * @return
 	 */
-	IResult writeTypologyTree(String treeRootNodeIdentifier, List<String> childProperties, Writer out, String index, String type);
+	IResult writeTypologyTree(String treeRootNodeIdentifier, String identityKey, List<String> childProperties, Writer out, String index, String type);
 	/**
 	 * Clear the visited list so this can be reused
 	 */

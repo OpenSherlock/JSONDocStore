@@ -15,13 +15,21 @@
  */
 package org.topicquests.persist.json.es;
 
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.elasticsearch.action.ActionFuture;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequestBuilder;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsResponse;
+import org.elasticsearch.action.count.CountRequestBuilder;
+import org.elasticsearch.action.delete.DeleteRequest;
+import org.elasticsearch.action.delete.DeleteResponse;
+import org.elasticsearch.action.get.GetRequestBuilder;
+import org.elasticsearch.action.index.IndexRequestBuilder;
+import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
@@ -70,14 +78,27 @@ public class ElasticSearchClusterModel extends AbstractBaseElasticSearchModel
 			entry = clusters.get(i);
 			name = entry.get(0);
 			port = entry.get(1);
+		//	System.out.println("Foo "+entry);
 			environment.logDebug("ElasticSearchClusterModel.doInit "+name+" "+port);
-			client.addTransportAddress(new InetSocketTransportAddress(name, Integer.parseInt(port)));
+			if (name.equals("localhost"))
+				client.addTransportAddress(new InetSocketTransportAddress(name, Integer.parseInt(port)));
+			else {
+				try {
+					InetAddress  a = InetAddress.getByName(name);
+					environment.logDebug("ElasticSearchClusterModel.doInit-1 "+a);
+					client.addTransportAddress(new InetSocketTransportAddress(a, Integer.parseInt(port)));
+				} catch (Exception e) {
+					result.addErrorString(e.getMessage());
+					environment.logError(e.getMessage(), e);
+					e.printStackTrace();
+				}
+			}
 		}
 		// We wait now for the yellow (or green) status
-		System.out.println("AAA-1");
+//		System.out.println("cAAA-1");
 //		client.admin().cluster().prepareHealth()
 //        	.setWaitForYellowStatus().execute().actionGet();
-		System.out.println("AAA-2 "+client);
+//		System.out.println("cAAA-2 "+client);
 		//Validate Indexes
 		checkIndexes(result);
 		return result;
@@ -102,7 +123,7 @@ public class ElasticSearchClusterModel extends AbstractBaseElasticSearchModel
 			idx = indexes.get(i).get(1);
 			indices.add(idx);
 			ib = getClient().admin().indices().prepareExists(idx);
-			ir = ib.get("1000");
+			ir = ib.get(REQUEST_DELAY);
 			System.out.println("BAR "+idx+" "+ir.isExists());
 			if (!ir.isExists()) {
 				try {
@@ -121,9 +142,61 @@ public class ElasticSearchClusterModel extends AbstractBaseElasticSearchModel
 			}
 		}	
 	}
-	/* (non-Javadoc)
-	 * @see org.topicquests.persist.json.api.IElasticSearchModel#getClient(java.lang.String)
-	 */
+
+
+	@Override
+	protected CountRequestBuilder prepareCount(String... indices) {
+		return client.prepareCount(indices);
+	}
+
+
+	@Override
+	protected ActionFuture<DeleteResponse> delete(DeleteRequest request) {
+		return client.delete(request);
+	}
+
+
+	@Override
+	protected GetRequestBuilder prepareGet(String index, String type, String id) {
+		GetRequestBuilder result = null;
+		try {
+			result= client.prepareGet(index, type, id);
+		} catch (Exception e) {
+			environment.logError(e.getMessage(),e);
+			result= client.prepareGet(index, type, id);
+		}
+		return result;
+	}
+
+
+	@Override
+	protected SearchRequestBuilder prepareSearch(String... indices) {
+		SearchRequestBuilder result = null;
+		try {
+			result =  client.prepareSearch(indices);
+		} catch (Exception e) {
+			environment.logError(e.getMessage(),e);
+			result =  client.prepareSearch(indices);
+		}
+		return result;
+	}
+
+
+	@Override
+	protected IndexRequestBuilder prepareIndex(String index, String type,
+			String id) {
+		IndexRequestBuilder result = null;
+		try {
+			result = client.prepareIndex(index, type, id);
+		} catch (Exception e) {
+			environment.logError(e.getMessage(),e);
+			result = client.prepareIndex(index, type, id);
+		}
+		return result;
+	}
+
+
+	@Override
 	public Client getClient() {
 		return client;
 	}

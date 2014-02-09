@@ -18,10 +18,12 @@ package org.topicquests.persist.json.es;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.elasticsearch.action.ActionFuture;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequestBuilder;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsResponse;
+import org.elasticsearch.action.count.CountRequestBuilder;
 import org.elasticsearch.action.count.CountResponse;
 import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.delete.DeleteResponse;
@@ -55,6 +57,8 @@ public abstract class AbstractBaseElasticSearchModel {
 	protected JSONDocStoreEnvironment environment;
 	private JSONObject innerMapping;
 	protected boolean isShutDown = false;
+	/** Default request delay; can be set otherwise with config property */
+	protected String REQUEST_DELAY = "10000";
 
 	/**
 	 * Pass init function to extension
@@ -62,17 +66,25 @@ public abstract class AbstractBaseElasticSearchModel {
 	 */
 	protected abstract IResult doInit();
 	
-	/**
-	 * Pass getClient function to extension
-	 * @return
-	 */
-	protected abstract Client getClient();
+	protected abstract 	CountRequestBuilder prepareCount(String... indices);
+
+	protected abstract ActionFuture<DeleteResponse> delete(DeleteRequest request);
+	
+	protected abstract GetRequestBuilder prepareGet(String index,  String type, String id);
+	
+	protected abstract SearchRequestBuilder prepareSearch(String... indices);
+	
+	protected abstract IndexRequestBuilder prepareIndex(String index, String type,  String id);
+
 	
 	/* (non-Javadoc)
 	 * @see org.topicquests.persist.json.api.IJSONDocStoreModel#init(java.lang.String)
 	 */
 	public IResult init(JSONDocStoreEnvironment env) {
 		environment = env;
+		String x = environment.getStringProperty("RequestDelay");
+		if (x != null)
+			REQUEST_DELAY = x;
 		TextFileHandler h = new TextFileHandler();
 		String mappings = h.readFile(ConfigurationHelper.findPath("mappings.json"));
 		try {
@@ -86,23 +98,6 @@ public abstract class AbstractBaseElasticSearchModel {
 	
 
 	
-	/**
-	 * Start the construction of an index
-	 * @param index
-	 * @param type can be <code>null</code>
-	 * @param id can be <code>null</code>
-	 * @return
-	 */
-	private IndexRequestBuilder prepareIndex(String index, String type,  String id) {
-		String idx = index;
-		if (idx == null)
-			idx = "";
-		String typ = type;
-		if (typ == null)
-			typ = "";
-		return getClient().prepareIndex(idx, typ, id);
-	}
-
 	
 	////////////////////////////////////
 	// Core API
@@ -116,7 +111,7 @@ public abstract class AbstractBaseElasticSearchModel {
 		IResult result = new ResultPojo();
 		IndexRequestBuilder idxb = prepareIndex(index,type,id);
 		idxb.setSource(jsonString);
-		IndexResponse resp = idxb.execute().actionGet();
+		IndexResponse resp = idxb.execute().actionGet(REQUEST_DELAY);
 		return result;
 	}
 
@@ -128,7 +123,16 @@ public abstract class AbstractBaseElasticSearchModel {
 		IResult result = new ResultPojo();
 		IndexRequestBuilder idxb = prepareIndex(index,type,id);
 		idxb.setSource(document);
-		IndexResponse resp = idxb.execute().actionGet();
+		environment.logDebug("AbstractBaseElasticSearchModel.putDocument-3 "+idxb);
+		IndexResponse resp = null;
+		try {
+			resp = idxb.execute().actionGet(REQUEST_DELAY);
+		} catch (Exception e) {
+			environment.logError(e.getMessage(), e);
+			result.addErrorString(e.getMessage());
+			environment.logDebug("AbstractBaseElasticSearchModel.putDocument-4 "+idxb);
+			resp = idxb.execute().actionGet(REQUEST_DELAY);			
+		}
 		return result;
 	}
 
@@ -140,21 +144,25 @@ public abstract class AbstractBaseElasticSearchModel {
 		environment.logDebug("AbstractBaseElasticSearchModel.getDocument- "+index+" "+type+" "+documentId);
 		IResult result = new ResultPojo();
 		String idx = index;
-		if (idx == null)
-			idx = "";
 		String  typ = type;
-		if (typ == null)
-			typ = "";
-		try { GetRequestBuilder b = getClient().prepareGet();
-			GetResponse resp =  getClient().prepareGet(idx, typ, documentId)
+		GetResponse resp = null;
+		GetRequestBuilder rbldr=null;
+		try { 
+			rbldr =  prepareGet(idx, typ, documentId);
 					//refresh should be left to default fault for heavy get usage
-					//.setRefresh(true)
-			        .execute().actionGet();
-			String rx = resp.getSourceAsString();
-			result.setResultObject(rx);
+			rbldr.setRefresh(true);
+			environment.logDebug("AbstractBaseElasticSearchModel.getDocument-2 "+rbldr);
+			resp    =    rbldr.execute().actionGet(REQUEST_DELAY);
 		} catch (Exception e) {
 			environment.logError(e.getMessage(), e);
 			result.addErrorString(e.getMessage());
+			environment.logDebug("AbstractBaseElasticSearchModel.getDocument-3 "+rbldr);
+			//try again
+			resp    =    rbldr.execute().actionGet(REQUEST_DELAY);
+		}
+		if (resp != null) {
+			String rx = resp.getSourceAsString();
+			result.setResultObject(rx);
 		}
 		return result;
 	}
@@ -172,9 +180,9 @@ public abstract class AbstractBaseElasticSearchModel {
 		if (typ == null)
 			typ = "";
 		try {
-			GetResponse resp =  getClient().prepareGet(idx, typ, documentId)
-					.setRefresh(true)
-			        .get("10000");
+			GetRequestBuilder rb = prepareGet(idx, typ, documentId);
+			rb.setRefresh(true);
+			GetResponse resp =  rb.get(REQUEST_DELAY);
 			result.setResultObject(new Boolean(resp.isExists()));
 		} catch (Exception e) {
 			environment.logError(e.getMessage(), e);
@@ -192,8 +200,8 @@ public abstract class AbstractBaseElasticSearchModel {
 		if (indices == null)
 			throw new RuntimeException("AbstractBaseModel.countDocuments cannot have null indices");
 		try {
-			CountResponse resp =  getClient().prepareCount(indices)
-			        .execute().actionGet();
+			CountRequestBuilder rb = prepareCount(indices);
+			CountResponse resp =  rb.execute().actionGet(REQUEST_DELAY);
 			result.setResultObject(new Long(resp.getCount()));
 		} catch (Exception e) {
 			environment.logError(e.getMessage(), e);
@@ -209,7 +217,8 @@ public abstract class AbstractBaseElasticSearchModel {
 		IResult result = new ResultPojo();
 		DeleteRequest drq = new DeleteRequest(index, type, documentId).refresh(true);
 		try {
-			DeleteResponse dr = getClient().delete(drq).get();
+			ActionFuture<DeleteResponse> ad = delete(drq);
+			DeleteResponse dr = ad.get();
 		} catch (Exception e) {
 			environment.logError(e.getMessage(), e);
 			result.addErrorString(e.getMessage());
@@ -226,9 +235,9 @@ public abstract class AbstractBaseElasticSearchModel {
 		IResult result = new ResultPojo();
 		try {
 			
-			SearchRequestBuilder builder = getClient().prepareSearch(index)
+			SearchRequestBuilder builder = prepareSearch(index)
 					//if you leave searchType out, you get big errors
-	               // .setSearchType(SearchType.QUERY_THEN_FETCH)
+	                // .setSearchType(SearchType.QUERY_THEN_FETCH)
 	                .setTypes(types)
 	                .setQuery(queryString)
 	                .setFrom(start);
@@ -237,7 +246,7 @@ public abstract class AbstractBaseElasticSearchModel {
 	                
 			SearchResponse resp = builder
 					.execute()
-					.actionGet();
+					.actionGet(REQUEST_DELAY);
 	                //.get("1000");
 			List<String> expected = new ArrayList<String>();
 			result.setResultObject(expected);
@@ -261,9 +270,9 @@ public abstract class AbstractBaseElasticSearchModel {
 		IResult result = new ResultPojo();
 		try {
 			
-			SearchRequestBuilder builder = getClient().prepareSearch(index)
+			SearchRequestBuilder builder = prepareSearch(index)
 					//if you leave searchType out, you get big errors
-	               // .setSearchType(SearchType.QUERY_THEN_FETCH)
+	                // .setSearchType(SearchType.QUERY_THEN_FETCH)
 	                .setTypes(types)
 	                .setQuery(qb)
 	                .setFrom(start);
@@ -272,7 +281,7 @@ public abstract class AbstractBaseElasticSearchModel {
 	                
 			SearchResponse resp = builder
 					.execute()
-					.actionGet();
+					.actionGet(REQUEST_DELAY);
 	                //.get("1000");
 			List<String> expected = new ArrayList<String>();
 			result.setResultObject(expected);
@@ -291,8 +300,12 @@ public abstract class AbstractBaseElasticSearchModel {
 	 * @see org.topicquests.persist.json.api.IJSONDocStoreModel#getDocumentByProperty(java.lang.String)
 	 */
 	public IResult getDocumentByProperty(String index, String key, String value, String... types) {
-		String queryString = "{\"match\": {\""+key+"\": \""+value+"\"}}";
-		System.out.println("GETXXX "+queryString);
+		StringBuilder buf = new StringBuilder("{\"match\": {\"");
+		buf.append(key);
+		buf.append("\": \"");
+		buf.append(value);
+		buf.append("\"}}");
+		String queryString = buf.toString(); // "{\"match\": {\""+key+"\": \""+value+"\"}}";
 		return this.runQuery(index, queryString, 0, -1, types);
 	}
 
@@ -306,7 +319,12 @@ public abstract class AbstractBaseElasticSearchModel {
 		for (String y : types) {
 			x+=y;
 		}
-		String queryString = "{\"match\": {\""+key+"\": \""+value+"\"}}";
+		StringBuilder buf = new StringBuilder("{\"match\": {\"");
+		buf.append(key);
+		buf.append("\": \"");
+		buf.append(value);
+		buf.append("\"}}");
+		String queryString = buf.toString(); //"{\"match\": {\""+key+"\": \""+value+"\"}}";
 		environment.logDebug("AbstractBaseElasticSearchModel.listDocumentsByProperty "+index+" "+x+" "+key+" "+queryString);
 		return this.runQuery(index, queryString, start, count, types);
 	}

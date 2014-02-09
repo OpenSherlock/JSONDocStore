@@ -24,7 +24,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.topicquests.common.ResultPojo;
 import org.topicquests.common.api.IResult;
-import org.topicquests.common.api.ITopicQuestsOntology;
 import org.topicquests.persist.json.JSONDocStoreEnvironment;
 import org.topicquests.persist.json.api.IJSONDocStoreModel;
 import org.topicquests.persist.json.api.ITreeHandler;
@@ -36,8 +35,8 @@ import org.topicquests.persist.json.api.ITreeHandler;
 public class TreeWriter implements ITreeHandler {
 	private JSONDocStoreEnvironment environment;
 	private IJSONDocStoreModel model;
+	//NOT thread safe: need new instance
 	private List<String>visited;
-	private JSONParser parser = new JSONParser();
 	private boolean isStarted = false;
 
 	/* (non-Javadoc)
@@ -56,7 +55,22 @@ public class TreeWriter implements ITreeHandler {
 	 * @see org.topicquests.persist.json.api.ITreeHandler#writeTree(java.lang.String, java.io.Writer)
 	 */
 	@Override
-	public IResult writeTree(String rootNodeIdentifier, List<String> childProperties, boolean includeRoot, Writer out, String index, String type) {
+	public IResult writeTree(String rootNodeIdentifier, String identityKey, List<String> childProperties, boolean includeRoot, Writer out, String index, String type) {
+		IResult result = new ResultPojo();
+		try {
+			out.write("[ ");
+			IResult r = _doWriteTree(rootNodeIdentifier,identityKey, childProperties, includeRoot, out, index, type);
+			if (r.hasError())
+				result.addErrorString(r.getErrorString());
+			out.write(" ]");
+		} catch (Exception e) {
+			environment.logError(e.getMessage(), e);
+			result.addErrorString(e.getMessage());
+		}
+		return result;
+	}
+	
+	IResult _doWriteTree(String rootNodeIdentifier, String identityKey, List<String> childProperties, boolean includeRoot, Writer out, String index, String type) {
 		environment.logDebug("TreeWriter.writeTree- "+rootNodeIdentifier+" "+childProperties);
 		IResult result = new ResultPojo();
 		JSONObject jo;
@@ -95,11 +109,12 @@ public class TreeWriter implements ITreeHandler {
 					result.addErrorString(temp.getErrorString());
 				if (snappers != null && !snappers.isEmpty()) {
 					children = snappers.iterator();
+					JSONParser parser = new JSONParser();
 					while (children.hasNext()) {
 						theChild = children.next();
 						jo = (JSONObject)parser.parse(theChild);
 						//this is implementation specific from TopicQuests
-						locator = (String)jo.get(ITopicQuestsOntology.LOCATOR_PROPERTY);
+						locator = (String)jo.get(identityKey);
 						if (!visited.contains(locator)) {
 							if (isStarted)
 								out.write(" , ");
@@ -107,7 +122,7 @@ public class TreeWriter implements ITreeHandler {
 							isStarted = true;
 							visited.add(locator);
 							//recursive call and write the node identified by <code>locator</code>
-							temp = writeTree(locator, childProperties, true,out, index, type);
+							temp = _doWriteTree(locator, identityKey, childProperties,true, out, index, type);
 							if (temp.hasError())
 								result.addErrorString(temp.getErrorString());
 						}
@@ -125,7 +140,22 @@ public class TreeWriter implements ITreeHandler {
 	 * @see org.topicquests.persist.json.api.ITreeHandler#writeTypologyTree(java.lang.String, java.io.Writer)
 	 */
 	@Override
-	public IResult writeTypologyTree(String treeRootNodeIdentifier, List<String> childProperties, Writer out, String index, String type) {
+	public IResult writeTypologyTree(String treeRootNodeIdentifier, String identityKey, List<String> childProperties, Writer out, String index, String type) {
+		IResult result = new ResultPojo();
+		try {
+			out.write("[ ");
+			IResult r = doWriteTypologyTree(treeRootNodeIdentifier,identityKey, childProperties, out, index, type);
+			if (r.hasError())
+				result.addErrorString(r.getErrorString());
+			out.write(" ]");
+		} catch (Exception e) {
+			environment.logError(e.getMessage(), e);
+			result.addErrorString(e.getMessage());
+		}
+		return result;
+	}
+	
+	IResult doWriteTypologyTree(String treeRootNodeIdentifier, String identityKey, List<String> childProperties, Writer out, String index, String type) {
 		environment.logDebug("TreeWriter.writeTypology- "+treeRootNodeIdentifier+" "+childProperties);
 		IResult result = new ResultPojo();
 		try {
@@ -151,16 +181,16 @@ public class TreeWriter implements ITreeHandler {
 				}
 				if (snappers != null && !snappers.isEmpty()) {
 					children = snappers.iterator();
+					JSONParser parser = new JSONParser();
 					while (children.hasNext()) {
 						theChild = children.next();
 						jo = (JSONObject)parser.parse(theChild);
-						//this is implementation specific from TopicQuests
-						locator = (String)jo.get(ITopicQuestsOntology.LOCATOR_PROPERTY);
+						locator = (String)jo.get(identityKey);
 						if (!visited.contains(locator)) {
 							//We don't write the uppers, just the children
 							//out.write(theChild);
 							
-							temp = writeTree(locator, childProperties, false,out, index, type);
+							temp = _doWriteTree(locator, identityKey, childProperties,false, out, index, type);
 							visited.add(locator);
 							if (temp.hasError())
 								result.addErrorString(temp.getErrorString());

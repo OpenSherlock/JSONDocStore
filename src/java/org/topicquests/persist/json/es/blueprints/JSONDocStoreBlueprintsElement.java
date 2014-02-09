@@ -23,6 +23,7 @@ import com.tinkerpop.blueprints.Graph;
 import com.tinkerpop.blueprints.Vertex;
 
 import org.json.simple.JSONObject;
+import org.topicquests.common.api.ITopicQuestsOntology;
 import org.topicquests.persist.json.es.blueprints.api.IBlueprintsGraphOntology;
 
 /**
@@ -36,6 +37,10 @@ public class JSONDocStoreBlueprintsElement extends JSONObject
 	protected final Graph graph;
 	//public final String ID_PROPERTY = IBlueprintsGraphOntology.ID_PROPERTY;
 	protected GraphUtil util;
+	/**
+	 * These are properties added outside the normal label, id, etc.
+	 */
+	protected Map<String,Object>cargoProperties=null;
 
 	/**
 	 * @param stringId
@@ -65,6 +70,32 @@ public class JSONDocStoreBlueprintsElement extends JSONObject
 		
 	}
 
+	/**
+	 * <p>Cargo properties are those which are preset other than
+	 * label, id, etc. during object creation.</p>
+	 * <p>NOTE: it might be useful to let the local setProperty
+	 * add to cargoProperties, but not sure on that.</p>
+	 * @param props
+	 */
+	public void setCargoProperties(Map<String,Object>props) {
+		if (props == null)
+			return;
+		cargoProperties = props;
+		Iterator<String>itr = props.keySet().iterator();
+		String key;
+		while (itr.hasNext()) {
+			key = itr.next();
+			this.setProperty(key, props.get(key));
+		}
+	}
+	
+	/**
+	 * Returns cargoProperties
+	 * @return can return <code>null</code>
+	 */
+	public Map<String,Object> getCargoProperties() {
+		return this.cargoProperties;
+	}
 	/* (non-Javadoc)
 	 * @see com.tinkerpop.blueprints.Element#getProperty(java.lang.String)
 	 */
@@ -116,4 +147,11 @@ public class JSONDocStoreBlueprintsElement extends JSONObject
 		return this.id;
 	}
 
+	protected void setType(String type) {
+		setProperty(ITopicQuestsOntology.INSTANCE_OF_PROPERTY_TYPE, type);
+	}
+	
+	protected void setLabel(String label) {
+		setProperty(ITopicQuestsOntology.LABEL_PROPERTY, label);
+	}
 }

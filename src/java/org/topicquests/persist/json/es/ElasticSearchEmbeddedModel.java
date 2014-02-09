@@ -17,11 +17,18 @@ package org.topicquests.persist.json.es;
 
 import java.util.*;
 
+import org.elasticsearch.action.ActionFuture;
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthStatus;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequestBuilder;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsResponse;
+import org.elasticsearch.action.count.CountRequestBuilder;
+import org.elasticsearch.action.delete.DeleteRequest;
+import org.elasticsearch.action.delete.DeleteResponse;
+import org.elasticsearch.action.get.GetRequestBuilder;
+import org.elasticsearch.action.index.IndexRequestBuilder;
+import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.index.query.QueryBuilder;
@@ -168,5 +175,33 @@ public class ElasticSearchEmbeddedModel extends AbstractBaseElasticSearchModel
 		return client;
 	}
 
+	@Override
+	protected CountRequestBuilder prepareCount(String... indices) {
+		return client.prepareCount(indices);
+	}
 
+
+	@Override
+	protected ActionFuture<DeleteResponse> delete(DeleteRequest request) {
+		return client.delete(request);
+	}
+
+
+	@Override
+	protected GetRequestBuilder prepareGet(String index, String type, String id) {
+		return client.prepareGet(index, type, id);
+	}
+
+
+	@Override
+	protected SearchRequestBuilder prepareSearch(String... indices) {
+		return client.prepareSearch(indices);
+	}
+
+
+	@Override
+	protected IndexRequestBuilder prepareIndex(String index, String type,
+			String id) {
+		return client.prepareIndex(index, type, id);
+	}
 }

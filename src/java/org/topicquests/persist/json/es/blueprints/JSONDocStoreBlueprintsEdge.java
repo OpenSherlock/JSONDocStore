@@ -38,9 +38,9 @@ public class JSONDocStoreBlueprintsEdge extends JSONDocStoreBlueprintsElement
 	 */
 	public JSONDocStoreBlueprintsEdge(final String stringId, final Vertex outVertex, final Vertex inVertex, final String label, final JSONDocStoreBlueprintsGraph g) {
 		super(stringId, g);
-		super.util.logDebug("JSONDocStoreBlueprintsEdge-");
-		setProperty(ITopicQuestsOntology.INSTANCE_OF_PROPERTY_TYPE, JSONDocStoreBlueprintsGraph.EDGE_TYPE);
-		setProperty(ITopicQuestsOntology.LABEL_PROPERTY, label);
+		super.util.logDebug("JSONDocStoreBlueprintsEdge- "+outVertex+" "+inVertex);
+		setType(JSONDocStoreBlueprintsGraph.EDGE_TYPE);
+		setLabel(label);
 		this.label = label;
 		this.inVertex = inVertex;
 		//set the property with those toJSONString

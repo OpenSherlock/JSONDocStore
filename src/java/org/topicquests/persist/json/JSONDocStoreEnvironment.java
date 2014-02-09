@@ -15,12 +15,14 @@
  */
 package org.topicquests.persist.json;
 
+import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 
 import org.nex.config.ConfigPullParser;
+import org.topicquests.common.api.IResult;
 import org.topicquests.persist.json.api.IJSONDocStoreModel;
 import org.topicquests.persist.json.api.IQueryEngine;
 import org.topicquests.persist.json.api.ITreeHandler;
@@ -95,6 +97,22 @@ public class JSONDocStoreEnvironment {
 	
 	public String getStringProperty(String key) {
 		return (String)props.get(key);
+	}
+	
+	/**
+	 * Dump an entire tree structure into <code>out</code>
+	 * @param rootNodeIdentifier
+	 * @param identityKey
+	 * @param childProperties
+	 * @param includeRoot
+	 * @param out
+	 * @param index
+	 * @param type
+	 * @return
+	 */
+	public IResult dumpTree(String rootNodeIdentifier, String identityKey, List<String> childProperties, boolean includeRoot, Writer out, String index, String type) {
+		ITreeHandler h = getTreeHandler();
+		return h.writeTree(rootNodeIdentifier, identityKey, childProperties, includeRoot, out, index, type);
 	}
 	
 	public void shutDown() {

@@ -41,7 +41,7 @@ public class JSONDocStoreBlueprintsVertex extends
 	 */
 	public JSONDocStoreBlueprintsVertex(final String stringId, final JSONDocStoreBlueprintsGraph g) {
 		super(stringId, g);
-		setProperty(ITopicQuestsOntology.INSTANCE_OF_PROPERTY_TYPE, JSONDocStoreBlueprintsGraph.VERTEX_TYPE);
+		setType(JSONDocStoreBlueprintsGraph.VERTEX_TYPE);
 	}
 
 	public JSONDocStoreBlueprintsVertex(JSONObject jo, final JSONDocStoreBlueprintsGraph g) {
@@ -134,9 +134,9 @@ public class JSONDocStoreBlueprintsVertex extends
 	public void addOutEdge(JSONDocStoreBlueprintsEdge edge) {
 		JSONArray edges = getListEdgeList(IBlueprintsGraphOntology.OUT_EDGE_ID_LIST_PROPERTY_TYPE);
 		edges.add(edge.getId());
-		super.util.logDebug("JSONDocStoreBlueprintsVertex.addOutEdge-1 "+edges);
+		super.util.logDebug("JSONDocStoreBlueprintsVertex.addOutEdge-1 "+(edges != null));
 		super.setProperty(IBlueprintsGraphOntology.OUT_EDGE_ID_LIST_PROPERTY_TYPE, edges);
-		super.util.logDebug("JSONDocStoreBlueprintsVertex.addOutEdge-2 ");
+		//super.util.logDebug("JSONDocStoreBlueprintsVertex.addOutEdge-2 ");
 	}
 	
 	public void addInEdge(JSONDocStoreBlueprintsEdge edge) {

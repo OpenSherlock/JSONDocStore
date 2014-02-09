@@ -34,14 +34,15 @@ public class TreeTest {
 	private IJSONDocStoreModel model;
 	private ITreeHandler handler;
 	private final String
-		INDEX = BuildComplexKnowledgeBase.INDEX,
-		TYPE = BuildComplexKnowledgeBase.TYPE,
-		ROOT = BuildComplexKnowledgeBase.ROOTID;
+		INDEX = "topics", //BuildComplexKnowledgeBase.INDEX,
+		TYPE = "core", //BuildComplexKnowledgeBase.TYPE,
+		ROOT = ITopicQuestsOntology.TYPE_TYPE; //BuildComplexKnowledgeBase.ROOTID;
 
 	/**
 	 * 
 	 */
 	public TreeTest() {
+		System.out.println("Starting tree test");
 		environment = new JSONDocStoreEnvironment();
 		model = environment.getModel();
 		handler = environment.getTreeHandler();
@@ -50,25 +51,23 @@ public class TreeTest {
 		props.add(ITopicQuestsOntology.INSTANCE_OF_PROPERTY_TYPE);
 		try {
 			IResult rx = null;
-			File f = new File("Typology"+System.currentTimeMillis());
+			File f = new File("Typology"+System.currentTimeMillis()+".json");
 			FileOutputStream fos = new FileOutputStream(f);
 			BufferedOutputStream bos = new BufferedOutputStream(fos);
 			Writer out = new PrintWriter(bos);
-			out.write('[');
-			rx = handler.writeTypologyTree(ROOT, props, out, INDEX, TYPE);
-			out.write(']');
+			String identityKey = ITopicQuestsOntology.LOCATOR_PROPERTY;
+			System.out.println("JUST STARTING");
+			rx = handler.writeTypologyTree(ROOT, identityKey, props, out, INDEX, TYPE);
 			out.close();
 			out.flush();
 			if (rx.hasError())
 				System.out.println("ERR1 "+rx.getErrorString());
 			handler.clearVisitedList();
-			f = new File("FullTree"+System.currentTimeMillis());
+			f = new File("FullTree"+System.currentTimeMillis()+".json");
 			fos = new FileOutputStream(f);
 			bos = new BufferedOutputStream(fos);
 			out = new PrintWriter(bos);
-			out.write('[');
-			rx = handler.writeTree(ROOT, props, true, out, INDEX, TYPE);
-			out.write(']');
+			rx = handler.writeTree(ROOT, identityKey, props, true, out, INDEX, TYPE);
 			out.close();
 			out.flush();
 			if (rx.hasError())

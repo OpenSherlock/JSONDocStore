@@ -33,7 +33,6 @@ public class GraphUtil {
 	
 	private JSONDocStoreBlueprintsGraph graph;
 	private JSONDocStoreEnvironment jsonEnvironment;
-	private JSONParser parser;
 
 	/**
 	 * 
@@ -41,7 +40,6 @@ public class GraphUtil {
 	public GraphUtil(JSONDocStoreBlueprintsGraph g,JSONDocStoreEnvironment e) {
 		graph = g;
 		jsonEnvironment = e;
-		parser = new JSONParser();
 		instance = this;
 	}
 	
@@ -65,7 +63,7 @@ public class GraphUtil {
 	 */
 	public JSONObject jsonToJSONObject(String jsonString) {
 		try {
-			return  (JSONObject)parser.parse(jsonString);
+			return  (JSONObject)new JSONParser().parse(jsonString);
 		} catch(Exception e) {
 			jsonEnvironment.logError(e.getMessage(), e);
 			throw new RuntimeException(e);
@@ -83,11 +81,11 @@ public class GraphUtil {
 	
 	
 	public Vertex jsonToVertex(String vertexJsonString) {
-		jsonEnvironment.logDebug("GraphUtil.jsonToVertes- "+vertexJsonString);
+		jsonEnvironment.logDebug("GraphUtil.jsonToVertes- "+(vertexJsonString != null));
 		try {
-			JSONObject jo = (JSONObject)parser.parse(vertexJsonString);
+			JSONObject jo = (JSONObject)new JSONParser().parse(vertexJsonString);
 			Vertex result = new JSONDocStoreBlueprintsVertex(jo,graph);
-			jsonEnvironment.logDebug("GraphUtil.jsonToVertes+ "+result);
+			jsonEnvironment.logDebug("GraphUtil.jsonToVertes+ ");
 			return result;
 		} catch(Exception e) {
 			jsonEnvironment.logError(e.getMessage(), e);
