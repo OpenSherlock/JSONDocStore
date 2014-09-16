@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!-- JSONDocStore properties
+	-->
+
+<properties>
+
+	<!-- Model created for a local, embedded index -->
+	<parameter name="Model" value="org.topicquests.persist.json.es.ElasticSearchEmbeddedModel" /> 
+	
+	<!-- Model created for remote and cluster servers
+	<parameter name="Model" value="org.topicquests.persist.json.es.ElasticSearchClusterModel" /> 
+	 -->
+	<!-- This is a plugin model which allows developers to create
+		custom query DSLs according to specific needs -->
+	<parameter name="QueryEngine" value = "org.topicquests.persist.json.es.SimpleElasticSearchQueryEngine" />
+	<parameter name="TreeEngine" value = "org.topicquests.persist.json.es.TreeWriter" />
+	<parameter name="NumShards" value="1"/>
+	<parameter name="NumDuplicates" value="0"/>
+	
+	<!-- Optional request delay; leave blank for none
+		typical might be 10000 = 10 seconds -->
+	<parameter name="RequestDelay" value = "60000"/>
+	
+	<!-- Multiple entries possible for clusters -->
+	<list name="Clusters">
+		<parameter name="localhost" value="9300" /> 
+	</list>
+
+	<!-- Index must be lowercase
+	     name is the index; value is which mappings file to use -->
+	<list name="IndexNames">
+		<parameter name="vertices" value = "graph.json" />
+		<parameter name="edges"	  value = "graph.json" />
+		<parameter name="topics" value = "mappings.json" />
+	</list>
+
+</properties>
+
