@@ -38,10 +38,12 @@ public class TestHarness {
 		//new BuildComplexKnowledgeBase();
 		//new FirstKBTest();
 		//new DumpKBTest();
-		new TreeTest();
+		//new TreeTest();
 		//new ExtraKBTest();
 		//new FirstGraphTest();
-		//new GraphTestSuite();
+		new GraphTestSuite();
+		//new FindVersionTest();
+		//new OptimisticLockTest();
 		System.out.println("Did");
 	}
 

@@ -28,6 +28,7 @@ public class FirstTest {
 	 */
 	public FirstTest() {
 		environment = new JSONDocStoreEnvironment();
+		environment.logDebug("FirstTest");
 		//TODO
 		environment.shutDown();
 	}

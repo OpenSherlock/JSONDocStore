@@ -46,11 +46,11 @@ public class SecondBigQueryTest {
 		JSONObject jo = new JSONObject();
 		jo.put("id", ID);
 		jo.put("subOf", ID2);
-		IResult rx = model.putDocument(ID, INDEX, TYPE, jo);
+		IResult rx = model.putDocument(ID, INDEX, TYPE, jo, false);
 		System.out.println("AAA "+rx.getErrorString());
 		jo.clear();
 		jo.put("id", ID2);
-		model.putDocument(ID2, INDEX, TYPE, jo);
+		model.putDocument(ID2, INDEX, TYPE, jo, false);
 		System.out.println("BBB "+rx.getErrorString());
 		jo.clear();
 		jo.put("id", ID3);
@@ -58,7 +58,7 @@ public class SecondBigQueryTest {
 		array.add(ID2);
 		array.add(ID4);
 		jo.put("subOf", array);
-		model.putDocument(ID3, INDEX, TYPE, jo);
+		model.putDocument(ID3, INDEX, TYPE, jo, false);
 		System.out.println("CCC "+rx.getErrorString());
 		String query = "{\"match\": {\"subOf\": \""+ID2+"\"}}";
 		rx = model.runQuery(INDEX, query, 0, -1, TYPE);

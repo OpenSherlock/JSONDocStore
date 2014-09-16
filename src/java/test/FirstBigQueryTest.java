@@ -43,16 +43,16 @@ public class FirstBigQueryTest {
 		JSONObject jo = new JSONObject();
 		jo.put("id", ID);
 		jo.put("subOf", ID2);
-		IResult rx = model.putDocument(ID, INDEX, TYPE, jo);
+		IResult rx = model.putDocument(ID, INDEX, TYPE, jo, false);
 		System.out.println("AAA "+rx.getErrorString());
 		jo.clear();
 		jo.put("id", ID2);
-		model.putDocument(ID2, INDEX, TYPE, jo);
+		model.putDocument(ID2, INDEX, TYPE, jo, false);
 		System.out.println("BBB "+rx.getErrorString());
 		jo.clear();
 		jo.put("id", ID3);
 		jo.put("subOf", ID2);
-		model.putDocument(ID3, INDEX, TYPE, jo);
+		model.putDocument(ID3, INDEX, TYPE, jo, false);
 		System.out.println("CCC "+rx.getErrorString());
 		//{
 		//  "term" : {

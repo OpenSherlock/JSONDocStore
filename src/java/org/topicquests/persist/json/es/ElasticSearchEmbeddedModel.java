@@ -20,6 +20,7 @@ import java.util.*;
 import org.elasticsearch.action.ActionFuture;
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthStatus;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
+import org.elasticsearch.action.admin.indices.create.CreateIndexRequestBuilder;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequestBuilder;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsResponse;
@@ -30,6 +31,9 @@ import org.elasticsearch.action.get.GetRequestBuilder;
 import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.client.Client;
+import org.elasticsearch.cluster.ClusterState;
+import org.elasticsearch.cluster.metadata.IndexMetaData;
+import org.elasticsearch.cluster.metadata.MappingMetaData;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.node.Node;
@@ -39,6 +43,7 @@ import org.topicquests.persist.json.api.IJSONDocStoreOntology;
 import org.topicquests.persist.json.es.api.IElasticSearchModel;
 import org.topicquests.util.TextFileHandler;
 import org.elasticsearch.node.NodeBuilder;
+import org.json.simple.JSONObject;
 
 /**
  * @author park
@@ -60,11 +65,11 @@ public class ElasticSearchEmbeddedModel extends AbstractBaseElasticSearchModel
 		ImmutableSettings.Builder settings = null;
 		//for settings, see org.elasticsearch.env.Environment
 		settings = ImmutableSettings.settingsBuilder();
-				 settings.put("node.name", "test-node");
+				// settings.put("node.name", "test-node");
 				 settings.put("path.data", "data/");
 				 settings.put("path.work", "data/work/");
 				 settings.put("index.number_of_shards", 1);
-				 settings.put("http.enabled", false);
+				 settings.put("http.enabled", true);
 				 settings.put("client.transport.ignore_cluster_name", true);
 				 settings.build();
 		 node = NodeBuilder.nodeBuilder()
@@ -122,30 +127,46 @@ public class ElasticSearchEmbeddedModel extends AbstractBaseElasticSearchModel
 		ImmutableSettings.Builder settings = null;
 		IndicesExistsRequestBuilder ib;
 		IndicesExistsResponse ir;
-		CreateIndexRequest cir;
-		CreateIndexResponse afr;
+		CreateIndexRequestBuilder cirb;
 		String idx = null;
+		String mappx = null;
+		JSONObject mappy = null;
+		IResult rx;
 		for (int i=0;i<len;i++) {
 			idx = indexes.get(i).get(1);
+			idx = indexes.get(i).get(0);
+			mappx = indexes.get(i).get(1);
+			rx = getMappings(mappx);
+			mappy = (JSONObject)rx.getResultObject();
 			indices.add(idx);
 			ib = getClient().admin().indices().prepareExists(idx);
 			ir = ib.get("1000");
 			System.out.println("BAR "+idx+" "+ir.isExists());
-			String mapx;
 			if (!ir.isExists()) {
 				try {
 					settings = ImmutableSettings.settingsBuilder();
 					 settings.put("path.data", "data/");
 					 settings.build();
-					 mapx = createMapping(idx);
-								 cir = new CreateIndexRequest(idx)
-						 .mapping(IJSONDocStoreOntology.CORE_TYPE, mapx)
-						.settings(settings);
-					 afr = getClient().admin().indices().create(cir).get();
-					 environment.logDebug("ElasticSearchEmbeddedModel-1 "+afr.isAcknowledged()+" "+mapx);
+						cirb = getClient().admin().indices().prepareCreate(idx);
+						cirb.addMapping(IJSONDocStoreOntology.CORE_TYPE,mappy);
+						cirb.setSettings(settings);
+						cirb.execute().actionGet();
+						
+					 environment.logDebug("ElasticSearchEmbeddedModel-1 ");
 				} catch (Exception x) {
 					environment.logError(x.getMessage(), x);
 					throw new RuntimeException(x);
+				}
+			} else {
+				//check the mappings
+				ClusterState cs = client.admin().cluster().prepareState().setIndices(idx).execute().actionGet().getState();
+				IndexMetaData imd = cs.getMetaData().index(idx);
+				MappingMetaData mdd = imd.mapping("core");
+				try {
+					Map<String,Object>mx = mdd.sourceAsMap();
+					System.out.println(mx);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 			}
 		}	

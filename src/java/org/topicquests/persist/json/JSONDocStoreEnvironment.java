@@ -49,10 +49,18 @@ public class JSONDocStoreEnvironment {
 	private JSONDocStoreBlueprintsGraphEnvironment graphEnvironment;
 	
 	/*
-	 * 
+	 * Simple constructor
 	 */
 	public JSONDocStoreEnvironment() {
-		ConfigPullParser p = new ConfigPullParser("jsonblobstore-props.xml");
+		this("jsondocstore-props.xml");
+	}
+	
+	/**
+	 * Constructor to allow different property file
+	 * @param propPath
+	 */
+	public JSONDocStoreEnvironment(String propPath) {
+		ConfigPullParser p = new ConfigPullParser(propPath);
 		props = p.getProperties();
 		String mpath = getStringProperty("Model");
 		String qpath = getStringProperty("QueryEngine");
@@ -61,15 +69,19 @@ public class JSONDocStoreEnvironment {
 		try {
 			model = (IJSONDocStoreModel)Class.forName(mpath).newInstance();
 			model.init(this);
+			logDebug("JSONDocStoreEnvironment-1");
 			queryEngine = (IQueryEngine)Class.forName(qpath).newInstance();
 			queryEngine.init(this);
 			treeEngine = (ITreeHandler)Class.forName(tpath).newInstance();
 			treeEngine.init(this);
+			logDebug("JSONDocStoreEnvironment-2");
 		} catch (Exception e) {
 			logError(e.getMessage(),e);
 			throw new RuntimeException(e);
 		}
 		graphEnvironment = new JSONDocStoreBlueprintsGraphEnvironment(this);
+		logDebug("JSONDocStoreEnvironment-3");
+	
 	}
 
 	public JSONDocStoreBlueprintsGraphEnvironment getGraphEnvironment() {

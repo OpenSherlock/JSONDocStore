@@ -69,7 +69,7 @@ public class BuildComplexKnowledgeBase {
 		//Build a root object
 		jo.put(BuildComplexKnowledgeBase.LOCATOR,BuildComplexKnowledgeBase.ROOTID);
 		jo.put(NAMESTRING, "KnowledgeBase Tree Root");
-		rx = model.putDocument(ROOTID, INDEX, TYPE, jo);
+		rx = model.putDocument(ROOTID, INDEX, TYPE, jo, false);
 		displayErrorMessage(1,rx);
 		//Build the types
 		//AssociationType
@@ -77,49 +77,49 @@ public class BuildComplexKnowledgeBase {
 		jo.put(LOCATOR, ASSOCIATIONTYPEID);
 		jo.put(SUBOF, ROOTID);
 		jo.put(NAMESTRING, "Association Type");
-		rx = model.putDocument(ASSOCIATIONTYPEID, INDEX, TYPE, jo);
+		rx = model.putDocument(ASSOCIATIONTYPEID, INDEX, TYPE, jo, false);
 		displayErrorMessage(2,rx);
 		//Causal AssociationType
 		jo.clear();
 		jo.put(LOCATOR, CAUSALID);
 		jo.put(SUBOF, ASSOCIATIONTYPEID);
 		jo.put(NAMESTRING, "Causal Association Type");
-		rx = model.putDocument(CAUSALID, INDEX, TYPE, jo);
+		rx = model.putDocument(CAUSALID, INDEX, TYPE, jo, false);
 		displayErrorMessage(3,rx);
 		//MoleculeType
 		jo.clear();
 		jo.put(LOCATOR, MOLECULETYPEID);
 		jo.put(SUBOF, ROOTID);
 		jo.put(NAMESTRING, "Molecule Type");
-		rx = model.putDocument(MOLECULETYPEID, INDEX, TYPE, jo);
+		rx = model.putDocument(MOLECULETYPEID, INDEX, TYPE, jo, false);
 		displayErrorMessage(4,rx);
 		//ProcessType
 		jo.clear();
 		jo.put(LOCATOR, PROCESSTYPEID);
 		jo.put(SUBOF, ROOTID);
 		jo.put(NAMESTRING, "Process Type");
-		rx = model.putDocument(PROCESSTYPEID, INDEX, TYPE, jo);
+		rx = model.putDocument(PROCESSTYPEID, INDEX, TYPE, jo, false);
 		displayErrorMessage(5,rx);
 		//ProcessType
 		jo.clear();
 		jo.put(LOCATOR, ATMOSPROCESSID);
 		jo.put(SUBOF, PROCESSTYPEID);
 		jo.put(NAMESTRING, "Atmospheric Process");
-		rx = model.putDocument(ATMOSPROCESSID, INDEX, TYPE, jo);
+		rx = model.putDocument(ATMOSPROCESSID, INDEX, TYPE, jo, false);
 		displayErrorMessage(6,rx);
 		//CO2
 		JSONObject cox = new JSONObject();
 		cox.put(LOCATOR, CO2ID);
 		cox.put(SUBOF, MOLECULETYPEID);
 		cox.put(NAMESTRING, "Carbon Dioxide");
-		rx = model.putDocument(CO2ID, INDEX, TYPE, cox);
+		rx = model.putDocument(CO2ID, INDEX, TYPE, cox, false);
 		displayErrorMessage(7,rx);
 		//Climate Change
 		JSONObject ccx = new JSONObject();
 		ccx.put(LOCATOR, CLIMATECHANGEID);
 		ccx.put(SUBOF, ATMOSPROCESSID);
 		ccx.put(NAMESTRING, "Climate Change");
-		rx = model.putDocument(CLIMATECHANGEID, INDEX, TYPE, ccx);
+		rx = model.putDocument(CLIMATECHANGEID, INDEX, TYPE, ccx, false);
 		displayErrorMessage(8,rx);
 		//Create an association: co2 cause climate change
 		String ASSOCIATION_ID = CO2ID+"."+CAUSALID+"."+CLIMATECHANGEID;
@@ -129,14 +129,14 @@ public class BuildComplexKnowledgeBase {
 		jo.put(SOURCETOPIC, CO2ID);
 		jo.put(TARGETTOPIC, CLIMATECHANGEID);
 		jo.put(NAMESTRING, "CO2 causes Climate Change");
-		rx = model.putDocument(ASSOCIATION_ID, INDEX, TYPE, jo);
+		rx = model.putDocument(ASSOCIATION_ID, INDEX, TYPE, jo, false);
 		displayErrorMessage(9,rx);
 		//now wire the association
 		cox.put(ASSOCIATIONS, ASSOCIATION_ID);
-		rx = model.putDocument(CO2ID, INDEX, TYPE, cox);
+		rx = model.putDocument(CO2ID, INDEX, TYPE, cox, false);
 		displayErrorMessage(10,rx);
 		ccx.put(ASSOCIATIONS, ASSOCIATION_ID);
-		rx = model.putDocument(CLIMATECHANGEID, INDEX, TYPE, ccx);
+		rx = model.putDocument(CLIMATECHANGEID, INDEX, TYPE, ccx, false);
 		displayErrorMessage(11,rx);
 		rx = model.getDocument(INDEX, TYPE, ASSOCIATION_ID);
 		//now fetch something

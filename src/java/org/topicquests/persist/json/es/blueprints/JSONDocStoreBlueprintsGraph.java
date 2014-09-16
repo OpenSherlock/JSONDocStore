@@ -115,7 +115,7 @@ public  class JSONDocStoreBlueprintsGraph implements IJSONGraph {
 	@Override
 	public Vertex addVertex(Object id) {
 		JSONDocStoreBlueprintsVertex result = new JSONDocStoreBlueprintsVertex((String)id,this);
-		IResult r = jsonModel.putDocument((String)id, VERTEX_INDEX, CORE_TYPE, result);
+		IResult r = jsonModel.putDocument((String)id, VERTEX_INDEX, CORE_TYPE, result, false);
 		return result;
 	}
 	
@@ -123,7 +123,7 @@ public  class JSONDocStoreBlueprintsGraph implements IJSONGraph {
 	public Vertex addVertex(String id, Map<String, Object> properties) {
 		JSONDocStoreBlueprintsVertex result = new JSONDocStoreBlueprintsVertex((String)id,this);
 		result.setCargoProperties(properties);
-		IResult r = jsonModel.putDocument((String)id, VERTEX_INDEX, CORE_TYPE, result);
+		IResult r = jsonModel.putDocument((String)id, VERTEX_INDEX, CORE_TYPE, result, false);
 		return result;
 	}
 
@@ -185,15 +185,15 @@ public  class JSONDocStoreBlueprintsGraph implements IJSONGraph {
 		JSONDocStoreBlueprintsEdge result = new JSONDocStoreBlueprintsEdge((String)id,outVertex, inVertex, label, this);
 		String idx = (String)result.getId();
 //		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-1 "+idx+" "+result.getId());
-		IResult r = jsonModel.putDocument(idx, EDGE_INDEX, CORE_TYPE, result);
+		IResult r = jsonModel.putDocument(idx, EDGE_INDEX, CORE_TYPE, result, false);
 		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-2 "+idx+" "+result.getId()+r.getErrorString());
 		JSONDocStoreBlueprintsVertex v = (JSONDocStoreBlueprintsVertex)outVertex;
 		v.addOutEdge(result);
 		//examineVertex(v);
-		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v);
+		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v, false);
 		v = (JSONDocStoreBlueprintsVertex)inVertex;
 		v.addInEdge(result);
-		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v);
+		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v, false);
 		return result;
 	}
 	
@@ -212,15 +212,15 @@ public  class JSONDocStoreBlueprintsGraph implements IJSONGraph {
 				result.setProperty(key, properties.get(key));
 			}
 		}
-		IResult r = jsonModel.putDocument(idx, EDGE_INDEX, CORE_TYPE, result);
+		IResult r = jsonModel.putDocument(idx, EDGE_INDEX, CORE_TYPE, result, false);
 		jsonEnvironment.logDebug("JSONDocStoreBlueprintsGraph.addEdge-2a "+r.getErrorString());
 		JSONDocStoreBlueprintsVertex v = (JSONDocStoreBlueprintsVertex)outVertex;
 		v.addOutEdge(result);
 		//examineVertex(v);
-		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v);
+		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v, false);
 		v = (JSONDocStoreBlueprintsVertex)inVertex;
 		v.addInEdge(result);
-		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v);
+		r = jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, v, false);
 		return result;
 	}
 
@@ -324,12 +324,12 @@ public  class JSONDocStoreBlueprintsGraph implements IJSONGraph {
 
 	@Override
 	public IResult updateVertex(Vertex v) {
-		return jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, ((JSONDocStoreBlueprintsVertex)v).toJSONString());
+		return jsonModel.putDocument((String)v.getId(), VERTEX_INDEX, CORE_TYPE, ((JSONDocStoreBlueprintsVertex)v).toJSONString(), false);
 	}
 
 	@Override
 	public IResult updateEdge(Edge e) {
-		return jsonModel.putDocument((String)e.getId(), VERTEX_INDEX, CORE_TYPE, ((JSONDocStoreBlueprintsEdge)e).toJSONString());
+		return jsonModel.putDocument((String)e.getId(), VERTEX_INDEX, CORE_TYPE, ((JSONDocStoreBlueprintsEdge)e).toJSONString(), false);
 	}
 
 

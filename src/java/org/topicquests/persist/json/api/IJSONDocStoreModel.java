@@ -28,16 +28,30 @@ public interface IJSONDocStoreModel {
 	
 	IResult init(JSONDocStoreEnvironment env);
 
-	IResult putDocument(String id, String index, String type, String jsonString);
+	/**
+	 * <p>Store a document based on <code>jsonString</code>.</p>
+	 * <p>If <code>checkVersion</code> is <code>true</code>, then
+	 * the value of the property {@link IJSONDocStoreOntology$VERSION_PROPERTY}, if it exists
+	 * in an already-stored document, is compared with that value, if it exists in <code>jsonString</code>.
+	 * If the comparison fails, then the store process is aborted and an OptimisticLockException error message
+	 * is returned.</p>
+	 * @param id
+	 * @param index
+	 * @param type
+	 * @param jsonString
+	 * @param checkVersion
+	 * @return
+	 */
+	IResult putDocument(String id, String index, String type, String jsonString, boolean checkVersion);
 	
-	IResult putDocument(String id, String index, String type, JSONObject document);
+	IResult putDocument(String id, String index, String type, JSONObject document, boolean checkVersion);
 	
 	/**
 	 * Return a JSON String representing the document
 	 * @param index
 	 * @param type
 	 * @param documentId
-	 * @return
+	 * @return 
 	 */
 	IResult getDocument(String index, String type, String documentId);
 	
@@ -56,7 +70,7 @@ public interface IJSONDocStoreModel {
 	 * @param key
 	 * @param value
 	 * @param types
-	 * @return
+	 * @return a <code>List<String></code> or <code>null</code> inside {@link IResult}
 	 */
 	IResult getDocumentByProperty(String index, String key, String value, String... types);
 	
@@ -69,7 +83,7 @@ public interface IJSONDocStoreModel {
 	 * @param start TODO
 	 * @param count TODO
 	 * @param types
-	 * @return
+	 * @return a <code>List<String></code> or <code>null</code> inside {@link IResult}
 	 */
 	IResult listDocumentsByWildcardPropertyValue(String index, String key, String wildcardQuery, int start, int count, String...types);
 	

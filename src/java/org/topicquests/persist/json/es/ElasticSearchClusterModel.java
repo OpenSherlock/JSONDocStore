@@ -18,12 +18,15 @@ package org.topicquests.persist.json.es;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.elasticsearch.action.ActionFuture;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
+import org.elasticsearch.action.admin.indices.create.CreateIndexRequestBuilder;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequestBuilder;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsResponse;
+import org.elasticsearch.action.admin.indices.mapping.put.PutMappingResponse;
 import org.elasticsearch.action.count.CountRequestBuilder;
 import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.delete.DeleteResponse;
@@ -32,8 +35,12 @@ import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.cluster.ClusterState;
+import org.elasticsearch.cluster.metadata.IndexMetaData;
+import org.elasticsearch.cluster.metadata.MappingMetaData;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.json.simple.JSONObject;
 import org.topicquests.common.ResultPojo;
 import org.topicquests.common.api.IResult;
 import org.topicquests.persist.json.api.IJSONDocStoreOntology;
@@ -61,6 +68,7 @@ public class ElasticSearchClusterModel extends AbstractBaseElasticSearchModel
 
 	/* (non-Javadoc)
 	 * @see org.topicquests.persist.json.es.AbstractBaseElasticSearchModel#doInit()
+	 * @see http://www.elasticsearch.org/guide/en/elasticsearch/client/java-api/current/client.html#transport-client
 	 */
 	@Override
 	protected IResult doInit() {
@@ -69,7 +77,7 @@ public class ElasticSearchClusterModel extends AbstractBaseElasticSearchModel
 		int len = clusters.size();
 		//CREATE the CLIENT
 		ImmutableSettings.Builder settings = settings = ImmutableSettings.settingsBuilder();
-		 settings.put("ignore_indices", "missing");
+		 settings.put("client.transport.ignore_cluster_name", "true");
 		 settings.build();
 		client = new TransportClient(settings);
 		String name, port;
@@ -116,28 +124,40 @@ public class ElasticSearchClusterModel extends AbstractBaseElasticSearchModel
 		//ImmutableSettings.Builder settings = null;
 		IndicesExistsRequestBuilder ib;
 		IndicesExistsResponse ir;
-		CreateIndexRequest cir;
-		CreateIndexResponse afr;
+		CreateIndexRequestBuilder cirb;
 		String idx = null;
+		String mappx = null;
+		JSONObject mappy = null;
+		IResult rx;
 		for (int i=0;i<len;i++) {
-			idx = indexes.get(i).get(1);
+			idx = indexes.get(i).get(0);
+			mappx = indexes.get(i).get(1);
+			rx = getMappings(mappx);
+			mappy = (JSONObject)rx.getResultObject();
 			indices.add(idx);
 			ib = getClient().admin().indices().prepareExists(idx);
 			ir = ib.get(REQUEST_DELAY);
 			System.out.println("BAR "+idx+" "+ir.isExists());
 			if (!ir.isExists()) {
 				try {
-			//		settings = ImmutableSettings.settingsBuilder();
-			//		 settings.put("path.data", "data/");
-			//		 settings.build();
-					 cir = new CreateIndexRequest(idx);
-					 cir.mapping(IJSONDocStoreOntology.CORE_TYPE, createMapping(idx));
-			//			.settings(settings);
-					 afr = getClient().admin().indices().create(cir).get();
-					System.out.println("FOO "+afr.isAcknowledged());
+					cirb = getClient().admin().indices().prepareCreate(idx);
+					cirb.addMapping(IJSONDocStoreOntology.CORE_TYPE,mappy);
+					cirb.execute().actionGet();
+					System.out.println("FOO ");
 				} catch (Exception x) {
 					environment.logError(x.getMessage(), x);
 					throw new RuntimeException(x);
+				}
+			} else {
+				//check the mappings
+				ClusterState cs = client.admin().cluster().prepareState().setIndices(idx).execute().actionGet().getState();
+				IndexMetaData imd = cs.getMetaData().index(idx);
+				MappingMetaData mdd = imd.mapping("core");
+				try {
+					Map<String,Object>mx = mdd.sourceAsMap();
+					System.out.println(mx);
+				} catch (Exception e) {
+					e.printStackTrace();
 				}
 			}
 		}	

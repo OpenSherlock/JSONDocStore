@@ -43,7 +43,7 @@ public class SecondTest {
 		jo.put("id", ID);
 		jo.put("type", TYPE);
 		jo.put("cargo", "Now is the time for all good men to come to the aid of their country.");
-		IResult rx = model.putDocument(ID, INDEX, TYPE, jo);
+		IResult rx = model.putDocument(ID, INDEX, TYPE, jo, false);
 		 rx = model.getDocument(INDEX, null, ID);
 		System.out.println(rx.hasError()+"  "+rx.getResultObject());
 		//TODO

@@ -21,6 +21,10 @@ package org.topicquests.persist.json.api;
  */
 public interface IJSONDocStoreOntology {
 	public static final String
-			CORE_TYPE		= "core";
+			CORE_TYPE					= "core",
+			/** a version number (Long) for optimistic locking */
+			VERSION_PROPERTY			= "_version",
+			OPTIMISTIC_LOCK_EXCEPTION	= "OptimisticLockException";
+	
 
 }
