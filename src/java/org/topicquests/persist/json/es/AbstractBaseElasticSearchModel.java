@@ -257,6 +257,7 @@ public abstract class AbstractBaseElasticSearchModel {
 	 */
 	public IResult documentExists(String index, String type, String documentId) {
 		IResult result = new ResultPojo();
+		result.setResultObject(new Boolean(false)); // default
 		String idx = index;
 		if (idx == null)
 			idx = "";
